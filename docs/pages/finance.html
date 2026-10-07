@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Finance</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Explain each finance product in two lines, let people work out an indicative monthly figure for any car in stock, and put the finance specialist's name and number where they can be tapped. The same calculator feeds the "from £x a month" figure on each car page.</p></div>
+          <div><h2>Why</h2><p>The finance page is several paragraphs about "bespoke funding solutions" and "first-rate relationships with leading finance providers". The products are only named on the homepage, and none is explained. The specialist's mobile number is shown as text with a telephone emoji in front of it.</p><p>Mayfair Prestige is FCA-authorised as a credit broker, so the page can say a good deal more than it does, provided the wording is signed off.</p></div>
+        </div>
+        <p class="proposal-foot">The calculator uses an illustrative 9.9% APR so the figures move. It is not a quote or a representative example; the real wording and rates need Mayfair Prestige's compliance sign-off.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="finance-app">
+      <div class="page-head" style="margin-top:0"><span class="eyebrow">Finance</span><h1>Paying for your car</h1><p>We arrange finance through a panel of lenders for private buyers and businesses, and handle the paperwork for you.</p></div>
+
+      <!-- Calculator (R55) -->
+      <section aria-labelledby="calc-title">
+        <h2 id="calc-title">What would it cost each month?</h2>
+        <div class="split">
+          <div class="panel">
+            <div class="field"><label for="fc-car">Car</label><select id="fc-car"></select><p class="field-hint"><a id="fc-car-link" href="../pages/car.html">View this car</a></p></div>
+            <div class="field"><span class="small" style="font-weight:500;display:block;margin-bottom:0.25rem">Finance type</span>
+              <div class="seg" id="fc-product" role="group" aria-label="Finance type"><button type="button" data-p="hp" aria-pressed="true">Hire purchase</button><button type="button" data-p="lp" aria-pressed="false">Lease purchase</button></div>
+            </div>
+            <div class="field"><label for="fc-dep">Deposit <span class="range-val" id="fc-dep-val"></span></label><input type="range" id="fc-dep" min="10" max="50" step="5" value="20"></div>
+            <div class="field"><label for="fc-term">Term <span class="range-val" id="fc-term-val"></span></label><input type="range" id="fc-term" min="24" max="60" step="12" value="48"></div>
+            <div class="field" id="fc-balloon-field" hidden><label for="fc-balloon">Final payment <span class="range-val" id="fc-balloon-val"></span></label><input type="range" id="fc-balloon" min="10" max="50" step="5" value="35"></div>
+          </div>
+          <div class="stack">
+            <div class="calc-out" aria-live="polite">
+              <span class="small muted">Indicative monthly payment</span>
+              <span class="big" id="fc-monthly">£0</span>
+              <dl class="kv small" id="fc-kv"></dl>
+            </div>
+            <a class="btn" id="fc-enquire" href="../pages/contact.html#route-finance">Talk to our finance specialist</a>
+            <p class="small muted" style="margin:0">Illustrative figures for a prototype. [Representative example to be supplied and approved by Mayfair Prestige.]</p>
+          </div>
+        </div>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opening from a car page loads that car. Lease purchase adds a final payment, which lowers the monthly figure. Every figure carries the illustrative label until real rates are agreed.</p>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Which products and lenders should the calculator reflect, and who approves financial promotions? If live rates can't be shown, a calculator with a clearly stated example rate is still common practice, but it needs sign-off.</p>
+      </section>
+
+      <!-- Products (R55) -->
+      <section aria-labelledby="prod-title">
+        <h2 id="prod-title" class="section-title">The options</h2>
+        <div class="products">
+          <div class="panel"><h3>Hire purchase</h3><p>Pay a deposit, then fixed monthly payments. The car is yours after the last one.</p></div>
+          <div class="panel"><h3>Lease purchase</h3><p>Lower monthly payments with a larger final payment at the end, after which the car is yours. Mostly used by businesses.</p></div>
+          <div class="panel"><h3>Contract hire</h3><p>A fixed monthly rental for an agreed term and mileage. You hand the car back at the end.</p></div>
+          <div class="panel"><h3>Personal contract hire</h3><p>Contract hire for private individuals.</p></div>
+          <div class="panel"><h3>Commercial loans</h3><p>[Business lending for one car or several. To confirm.]</p></div>
+        </div>
+      </section>
+
+      <!-- Specialist (R05) -->
+      <section aria-labelledby="spec-title">
+        <div class="band">
+          <div><span class="eyebrow">Your finance specialist</span><h2 id="spec-title">Tristan Bryant</h2><p class="muted">For a no-obligation quotation, call or message.</p></div>
+          <div class="stack"><div class="contact-line"><span>Mobile <a href="tel:+447515356434">07515 356434</a></span></div><a class="btn btn-secondary" href="../pages/contact.html#route-finance">Ask about finance</a></div>
+        </div>
+      </section>
+
+      <p class="small muted">Mayfair Prestige UK Ltd is authorised and regulated by the Financial Conduct Authority (FCA No. 624168). We act as a credit broker, not a lender. We may introduce you to a limited number of finance providers and will receive a commission from the provider if you go ahead.</p>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

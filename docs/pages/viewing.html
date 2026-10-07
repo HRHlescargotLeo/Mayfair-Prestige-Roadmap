@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a viewing – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Book a viewing, reserve with confidence</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A viewing request in four short steps: in the showroom or on a video call, a day and a rough time, your details, and a confirmation that says what happens next. The car you came from is carried through, so nobody types its make and model into a box.</p><p>Two companion pages complete the prototype: <a href="../pages/reserve.html">Reserve</a>, which explains what reserving means before asking for anything, and <a href="../pages/contact.html">Contact</a>, which finally has the phone number on it.</p></div>
+          <div><h2>Why</h2><p>Viewing by appointment is the whole model, and the site says so on almost every page. Booking one means choosing "Book an Appointment" from a 13-option list on the contact form, or pressing "Arrange a Viewing" on a car and landing on the Reserve form, which never mentions a viewing.</p><p>A request isn't a confirmed booking, and the prototype doesn't pretend otherwise. It asks for a preference and says someone will call to confirm. That keeps the diary in the showroom's hands, which seems right for a business this size.</p></div>
+        </div>
+        <p class="proposal-foot">Days run from tomorrow. Times follow the Location page's hours, which are an open question.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="viewing-app">
+      <div class="page-head" style="margin-top:0"><h1>Book a viewing</h1><p>Viewings are by appointment, in our Marylebone showroom or by video call.</p></div>
+
+      <div class="split">
+        <div>
+          <!-- Car being viewed (R33, R35) -->
+          <div class="car-summary" data-summary hidden></div>
+          <div class="field" id="v-car-pick" hidden><label for="v-car">Which car would you like to see?</label><select id="v-car"></select><p class="field-hint">Or leave it blank and tell us what you're looking for.</p></div>
+
+          <!-- Steps (R30) -->
+          <ol class="stepper" id="v-stepper" aria-label="Progress">
+            <li aria-current="step">How</li><li>When</li><li>Your details</li><li>Done</li>
+          </ol>
+
+          <section class="v-step" data-step="1" aria-labelledby="v1">
+            <h2 id="v1">How would you like to view it?</h2>
+            <div class="choice-grid">
+              <button type="button" class="choice" data-type="showroom" aria-pressed="false"><b>In the showroom</b><span>91 Crawford Street, Marylebone. We'll have the car ready and the time set aside for you.</span></button>
+              <button type="button" class="choice" data-type="video" aria-pressed="false"><b>Video call</b><span>A walkaround on WhatsApp or FaceTime, wherever you are. About 20 minutes.</span></button>
+            </div>
+            <div class="step-nav"><span></span><button type="button" class="btn" id="v-next-1" disabled>Continue</button></div>
+          </section>
+
+          <section class="v-step" data-step="2" aria-labelledby="v-when-title" hidden>
+            <h2 id="v-when-title">When would you like to visit?</h2>
+            <div class="days" id="v-days" role="group" aria-label="Choose a day"></div>
+            <div id="v-slot-wrap" hidden><h3 class="small">Choose a time</h3><div class="slots" id="v-slots" role="group" aria-label="Choose a time"></div></div>
+            <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Showroom viewings offer three parts of the day rather than exact slots; video calls offer hourly slots. Sundays are by arrangement. Nothing is booked until someone calls to confirm.</p>
+            <div class="step-nav"><button type="button" class="btn btn-secondary" data-back="1">Back</button><button type="button" class="btn" id="v-next-2" disabled>Continue</button></div>
+          </section>
+
+          <section class="v-step" data-step="3" aria-labelledby="v3" hidden>
+            <h2 id="v3">Your details</h2>
+            <form id="v-form" novalidate>
+              <div class="form-grid">
+                <div class="field"><label for="v-name">Name <span class="req">*</span></label><input type="text" id="v-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                <div class="field"><label for="v-phone">Mobile <span class="req">*</span></label><input type="tel" id="v-phone" autocomplete="tel" required data-error="Please give a phone number we can call to confirm."><p class="field-hint">WhatsApp is fine.</p></div>
+                <div class="field full"><label for="v-email">Email <span class="req">*</span></label><input type="email" id="v-email" autocomplete="email" required data-error="Please enter an email address, like name@example.com."></div>
+                <div class="field full"><label for="v-msg">Anything we should know? (optional)</label><textarea id="v-msg" rows="3"></textarea></div>
+                <div class="field full stack" style="gap:0.5rem">
+                  <label class="check"><input type="checkbox" id="v-fin"> I'd like to talk about finance</label>
+                  <label class="check"><input type="checkbox" id="v-px"> I have a car to part exchange</label>
+                </div>
+              </div>
+              <p class="small muted">We'll use these details to arrange your viewing. [Privacy notice link]</p>
+              <div class="step-nav"><button type="button" class="btn btn-secondary" data-back="2">Back</button><button type="submit" class="btn">Request viewing</button></div>
+            </form>
+            <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Three required fields, down from the reserve form's required name, email, phone, finance yes/no and consent box. Finance and part exchange are optional ticks, so the sales team knows before it calls.</p>
+          </section>
+
+          <section class="v-step" data-step="4" aria-labelledby="v4" hidden>
+            <div class="confirm">
+              <h2 id="v4">Thank you, <span id="v-who">we've got your request</span></h2>
+              <p>Your reference is <span class="ref" id="v-ref">MPV-0000</span></p>
+              <dl class="kv"><dt>Viewing</dt><dd id="v-what">–</dd><dt>Preferred</dt><dd id="v-when">–</dd></dl>
+              <p>One of the sales team will call you within [two working hours] to confirm the time. If it's urgent, call <a data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a>.</p>
+              <div class="row"><a class="btn btn-secondary" href="../pages/contact.html">How to find us</a><a class="btn btn-secondary" href="../pages/inventory.html">Keep browsing</a></div>
+            </div>
+            <p class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>How quickly can the team realistically call back, and who should these requests go to? The confirmation should only promise what the showroom can keep to.</p>
+          </section>
+        </div>
+
+        <!-- Visit details (R04, R36) -->
+        <aside class="panel surface stack" aria-label="Visiting the showroom">
+          <h2 class="small" style="text-transform:uppercase;letter-spacing:0.06em;margin:0">Private showroom</h2>
+          <p style="margin:0" data-fact="address">91 Crawford Street</p>
+          <dl class="hours" data-fact="hours"></dl>
+          <p class="small" style="margin:0">Baker Street and Marylebone stations are a short walk. [Parking arrangements to confirm.]</p>
+          <div class="contact-line"><span>Call <a data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a></span></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

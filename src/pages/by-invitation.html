@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>By invitation – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · By invitation</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Turn the footer's "By invitation" sign-up into something a buyer would actually fill in: choose the marques, body styles and budget you care about, see how many cars in stock match today, and hear about new arrivals before they're listed. Next to it, a short "find me a car" brief for the car that isn't in stock.</p><p>The <a href="~/pages/sold.html">Previously Sold</a> page becomes the proof that the sourcing works, with "find me one like this" on every car.</p></div>
+          <div><h2>Why</h2><p>The homepage says Mayfair Prestige can "procure the car you are looking for within a short period of time if it should not be in our inventory". There's nowhere on the site to ask for that; the contact form's 13 enquiry types don't include it.</p><p>"By invitation – private updates on current and upcoming availability" is the best line on the site. At the moment it's a single email field in the footer, with no say over what you'll be sent.</p></div>
+        </div>
+        <p class="proposal-foot">The count of matching cars uses today's 40 cars. Marques not currently in stock (Bugatti, McLaren and so on) can still be chosen.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="invite-app">
+      <div class="page-head" style="margin-top:0"><span class="eyebrow">By invitation</span><h1>Be first to know</h1><p>Many of our cars are sold before they're listed. Tell us what you're looking for and we'll be in touch when it arrives, or go and find it for you.</p></div>
+
+      <div class="tabs" aria-label="By invitation">
+        <button type="button" class="tab active" data-tab="alerts">Private updates</button>
+        <button type="button" class="tab" data-tab="find">Find me a car</button>
+        <button type="button" class="tab" data-tab="sell">Selling a car</button>
+      </div>
+      <div>
+        <!-- Alerts (R40) -->
+        <section class="tab-panel active" id="alerts" aria-label="Private updates">
+          <div class="split">
+            <form id="a-form" data-confirm="a-done">
+              <fieldset><legend>Marques</legend><div class="chip-set" id="a-makes"></div></fieldset>
+              <fieldset><legend>Body style</legend>
+                <div class="chip-set" id="a-bodies">
+                  <button type="button" class="chip" data-bd="Coupe" aria-pressed="false">Coupe</button>
+                  <button type="button" class="chip" data-bd="Convertible" aria-pressed="false">Convertible</button>
+                  <button type="button" class="chip" data-bd="Saloon" aria-pressed="false">Saloon</button>
+                  <button type="button" class="chip" data-bd="SUV" aria-pressed="false">SUV</button>
+                </div>
+              </fieldset>
+              <fieldset><legend>Budget</legend><div class="form-grid"><div class="field"><label for="a-min" class="small muted">From</label><select id="a-min"></select></div><div class="field"><label for="a-max" class="small muted">To</label><select id="a-max"></select></div></div></fieldset>
+              <div class="form-grid">
+                <div class="field"><label for="a-name">Name <span class="req">*</span></label><input type="text" id="a-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                <div class="field"><label for="a-email">Email <span class="req">*</span></label><input type="email" id="a-email" autocomplete="email" required data-error="Please enter an email address, like name@example.com."></div>
+                <div class="field full"><label for="a-how">Send updates by</label><select id="a-how"><option>Email</option><option>WhatsApp</option><option>Email and WhatsApp</option></select></div>
+                <div class="field full"><label class="check"><input type="checkbox" id="a-consent" required data-error="We need your agreement to send you updates."> I'd like to receive private updates from Mayfair Prestige about cars matching these choices. I can stop them at any time. <span class="req">*</span></label></div>
+              </div>
+              <button type="submit" class="btn">Send me private updates</button>
+            </form>
+            <div class="confirm" id="a-done" hidden><h2>You're on the list</h2><p>Reference <span class="ref" data-ref="MPA">MPA-0000</span>. We'll be in touch when something matching your choices arrives. Every message has a link to change or stop them.</p></div>
+
+            <aside class="match-count" aria-live="polite">
+              <span class="n" id="a-count">40</span>
+              <span id="a-count-text">cars in stock today match</span>
+              <span class="small muted" id="a-summary"></span>
+              <ul class="small" id="a-sample" style="padding-left:1.1rem;margin:0"></ul>
+              <a class="btn btn-secondary btn-sm" id="a-see" href="~/pages/inventory.html">See them now</a>
+            </aside>
+          </div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The count updates as you choose, so it's clear what "matching" means. Consent is explicit and separate, and every update would carry a link to change preferences or stop.</p>
+          <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Who would send these, and how? A weekly email of new arrivals can be automated from the stock feed; a personal WhatsApp from the sales team can't, but is probably what this kind of buyer expects.</p>
+        </section>
+
+        <!-- Find me a car (R41) -->
+        <section class="tab-panel" id="find" aria-label="Find me a car">
+          <div class="split">
+            <div>
+              <p class="lead">If it isn't in stock, we can usually find it. Tell us what you're after and a specialist will call to talk it through.</p>
+              <p class="panel surface small" id="fm-from" hidden></p>
+              <form id="fm-form" data-confirm="fm-done">
+                <div class="form-grid">
+                  <div class="field"><label for="fm-make">Marque <span class="req">*</span></label><input type="text" id="fm-make" required data-error="Please tell us the marque."></div>
+                  <div class="field"><label for="fm-model">Model</label><input type="text" id="fm-model"></div>
+                  <div class="field"><label for="fm-years">Years</label><input type="text" id="fm-years" placeholder="For example, 2015 to 2018"></div>
+                  <div class="field"><label for="fm-colour">Colour or specification</label><input type="text" id="fm-colour"></div>
+                  <div class="field"><label for="fm-budget">Budget</label><select id="fm-budget"><option>Up to £50,000</option><option>£50,000 to £100,000</option><option>£100,000 to £200,000</option><option>£200,000 to £400,000</option><option>Over £400,000</option></select></div>
+                  <div class="field"><label for="fm-when">When</label><select id="fm-when"><option>As soon as possible</option><option>In the next three months</option><option>No rush, the right car matters more</option></select></div>
+                  <div class="field"><label for="fm-name">Name <span class="req">*</span></label><input type="text" id="fm-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                  <div class="field"><label for="fm-phone">Phone <span class="req">*</span></label><input type="tel" id="fm-phone" autocomplete="tel" required data-error="Please give a phone number."></div>
+                  <div class="field full"><label for="fm-email">Email <span class="req">*</span></label><input type="email" id="fm-email" autocomplete="email" required data-error="Please enter an email address, like name@example.com."></div>
+                </div>
+                <button type="submit" class="btn">Send my brief</button>
+              </form>
+              <div class="confirm" id="fm-done" hidden><h2>Thank you</h2><p>Reference <span class="ref" data-ref="MPB">MPB-0000</span>. A specialist will call you [within one working day] to talk through the <span data-echo="fm-make">car</span> you're looking for.</p></div>
+            </div>
+            <aside class="panel surface stack">
+              <h2 class="small" style="text-transform:uppercase;letter-spacing:0.06em;margin:0">Cars we've found before</h2>
+              <p class="small" style="margin:0">From a Ferrari F40 to a Mercedes G 6x6, our <a href="~/pages/sold.html">previously sold</a> list shows the kind of cars we source.</p>
+              <a class="btn btn-secondary btn-sm" href="~/pages/sold.html">See what we've sold</a>
+            </aside>
+          </div>
+          <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Opens prefilled from a sold car ("find me one like this"), from an empty inventory search, or from a car page. Two required fields plus contact details.</p>
+        </section>
+
+        <!-- Selling (R44) -->
+        <section class="tab-panel" id="sell" aria-label="Selling a car">
+          <h2>Selling your car</h2>
+          <p class="lead">We're always looking for exceptional cars, and for collections. Here's what happens after you ask for a valuation.</p>
+          <div class="sell-ways">
+            <div class="panel"><h3>We buy it</h3><p class="small">[An offer within a working day, paid on collection. To confirm.]</p></div>
+            <div class="panel"><h3>Part exchange</h3><p class="small">[Against any car in stock or one we source for you. To confirm.]</p></div>
+            <div class="panel"><h3>We sell it for you</h3><p class="small">[Shown in the showroom and online, on agreed terms. To confirm.]</p></div>
+          </div>
+          <ol class="how-list" style="margin-top:1.5rem">
+            <li><p><b>Tell us the registration and mileage.</b> The three-step valuation on the current site already does this well.</p></li>
+            <li><p><b>A specialist reviews it</b> and calls you, usually [within one working day].</p></li>
+            <li><p><b>We see the car,</b> at the showroom or where it's kept, and agree the next step.</p></li>
+          </ol>
+          <div class="row" style="margin-top:1rem"><a class="btn" href="~/pages/contact.html#route-selling">Ask for a valuation</a><a class="btn btn-secondary" href="~/pages/contact.html#route-selling">Selling a collection</a></div>
+          <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Which of these three does Mayfair Prestige offer, and on what terms? The homepage mentions experience "acquiring or selling collections", which seems worth its own route.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

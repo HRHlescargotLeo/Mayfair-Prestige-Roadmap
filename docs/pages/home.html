@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <!-- What we're proposing and why (shown when Notes are on) -->
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · The showroom online · Homepage</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A homepage that shows the cars. Under a slimmer search we'd put the six most recent arrivals, one featured car with a line about why it's worth seeing, and the stock grouped into the collections people actually come for. Reviews, the "By invitation" list and the private services follow, then how to visit.</p><p>The <a href="../pages/inventory.html">inventory</a> is the other half of this prototype.</p></div>
+          <div><h2>Why</h2><p>The current homepage has a search form, three service tiles and several paragraphs of older copy. Not one of the 40 cars in stock appears on it. A visitor who doesn't yet know what they want has nothing to look at until they've chosen a make and pressed a button.</p><p>The stock itself is the strongest argument Mayfair Prestige has. Nine Rolls-Royces, six Ferraris and three 1960s Mustangs say more about the business than a paragraph about passion for luxury on four wheels.</p></div>
+        </div>
+        <p class="proposal-foot">Latest arrivals use sample "days in stock" figures. Prices, mileages and derivatives are from the live site.</p>
+      </div>
+    </aside>
+
+    <div id="home-app">
+      <!-- Hero and search (R10, R13) -->
+      <div class="wf-placeholder hero-ph">Showroom photograph 1600 × 540</div>
+      <section class="search-band" aria-labelledby="search-title">
+        <div class="container">
+          <h1 id="search-title">Your luxury journey starts here</h1>
+          <form id="home-search" class="search-row">
+            <div class="field"><label for="hs-make">Make</label><select id="hs-make"></select></div>
+            <div class="field"><label for="hs-model">Model</label><select id="hs-model"></select></div>
+            <div class="field"><label for="hs-min">Price from</label><select id="hs-min"></select></div>
+            <div class="field"><label for="hs-max">Price to</label><select id="hs-max"></select></div>
+            <button class="btn" type="submit" id="hs-submit">Show cars</button>
+          </form>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The button counts matching cars as you choose, so nobody searches their way to an empty page. Budget now has a minimum and a maximum, in bands from £25,000 to £400,000, so the five cars under £50,000 can be found.</p>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- Latest arrivals (R10) -->
+        <section aria-labelledby="latest-title">
+          <div class="section-head"><h2 id="latest-title">Latest arrivals</h2><a href="../pages/inventory.html">View all <span data-count="cars">40</span> cars</a></div>
+          <div class="car-grid" id="latest"></div>
+          <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>The six cars most recently added to stock, newest first, drawn from the stock feed. Save adds a car to a shortlist kept for the visit. Status labels (New arrival, Reserved, Under offer) come from the feed too.</p>
+          <p class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Can the stock feed tell us when each car arrived and whether it's reserved or under offer? If not, someone would set these by hand in the CMS.</p>
+        </section>
+
+        <!-- Featured car (R10) -->
+        <section aria-labelledby="featured-title">
+          <h2 id="featured-title" class="section-title">Featured</h2>
+          <div class="featured">
+            <div class="wf-placeholder" data-photo="2014-ferrari-458" data-photo-n="0">Photo · featured car</div>
+            <div class="stack">
+              <span class="eyebrow">2014 Ferrari 458 Speciale · 6,500 miles</span>
+              <h3>The last naturally aspirated mid-engined V8 Ferrari, with 6,500 miles from new.</h3>
+              <p class="muted">[One or two sentences in house about why this car is worth a visit. Sample.]</p>
+              <div class="row"><a class="btn" href="../pages/car.html?car=2014-ferrari-458">See the car</a><a class="btn btn-secondary" href="../pages/viewing.html?car=2014-ferrari-458">Book a viewing</a></div>
+            </div>
+          </div>
+          <p class="wf-note" data-note="4"><span class="wf-note-label">Editor</span>The featured car is chosen in the CMS, with a one-line hook written by the sales team. If none is chosen, the module hides.</p>
+        </section>
+
+        <!-- Collections (R11) -->
+        <section aria-labelledby="coll-title">
+          <h2 id="coll-title" class="section-title">Browse by collection</h2>
+          <div class="collections" id="collections"></div>
+          <p class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Each collection opens the inventory already filtered. Counts update from the stock feed; a collection with nothing in it hides.</p>
+        </section>
+
+        <!-- Reviews (R42) -->
+        <section aria-labelledby="rev-title">
+          <h2 id="rev-title" class="section-title">What clients say</h2>
+          <div class="rating"><span class="score">5.0</span><div><div class="stars" aria-hidden="true">★★★★★</div><span class="small muted">From 10 reviews on AutoTrader</span></div><a class="btn btn-secondary btn-sm" href="https://www.autotrader.co.uk/dealers/london/city-of-westminster/mayfair-prestige-uk-ltd-66450" target="_blank" rel="noopener">Read the reviews</a></div>
+          <div class="reviews">
+            <blockquote class="review"><p>"Amir was exceptionally helpful and made the whole process effortless."</p><footer>Alex S · Purchase of a Ferrari F12 · May 2026</footer></blockquote>
+            <blockquote class="review"><p>"Nothing was too much trouble and Daniel kept me informed throughout."</p><footer>Anthony Pask · November 2025</footer></blockquote>
+            <blockquote class="review"><p>"No nonsense, straight talking approach to selling cars."</p><footer>Scott Inman · July 2025</footer></blockquote>
+          </div>
+          <p class="wf-note query" data-note="6"><span class="wf-note-label">Open question</span>These are short extracts from real AutoTrader reviews. Is Mayfair Prestige happy to show them, and would AutoTrader's review widget be preferred to a curated selection?</p>
+        </section>
+
+        <!-- By invitation teaser (R40) -->
+        <section aria-labelledby="inv-title">
+          <div class="band">
+            <div><span class="eyebrow">By invitation</span><h2 id="inv-title">Hear about cars before they're listed</h2><p class="muted">Tell us the marques and budget you're interested in, and we'll let you know when something arrives.</p></div>
+            <div class="row"><a class="btn" href="../pages/by-invitation.html">Set up alerts</a><a class="btn btn-secondary" href="../pages/by-invitation.html#find">Find me a car</a></div>
+          </div>
+        </section>
+
+        <!-- Services (R50) -->
+        <section aria-labelledby="svc-title">
+          <h2 id="svc-title" class="section-title">Private services</h2>
+          <div class="grid grid-4">
+            <a class="card" href="../pages/services.html#armoured"><span class="card-title">Armoured vehicles</span><span class="card-text">Sourced discreetly for private, corporate and diplomatic clients.</span></a>
+            <a class="card" href="../pages/services.html#storage"><span class="card-title">Storage</span><span class="card-text">Central London, from £950 a month.</span></a>
+            <a class="card" href="../pages/services.html#delivery"><span class="card-title">Delivery and transport</span><span class="card-text">UK, Europe and worldwide.</span></a>
+            <a class="card" href="../pages/finance.html"><span class="card-title">Finance</span><span class="card-text">Hire purchase, lease purchase and contract hire.</span></a>
+          </div>
+        </section>
+
+        <!-- Visit (R04, R05, R36) -->
+        <section aria-labelledby="visit-title">
+          <div class="band">
+            <div>
+              <span class="eyebrow">Private showroom</span>
+              <h2 id="visit-title">Viewings by appointment</h2>
+              <p><span data-fact="address">91 Crawford Street</span></p>
+              <dl class="hours" data-fact="hours"></dl>
+            </div>
+            <div class="stack">
+              <div class="contact-line"><span>Call <a data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a></span><span>WhatsApp <a data-fact="wa-link" href="https://wa.me/447791777777">+44 7791 777777</a></span></div>
+              <div class="row"><a class="btn" href="../pages/viewing.html">Book a viewing</a><a class="btn btn-secondary" href="../pages/contact.html">Contact and directions</a></div>
+            </div>
+          </div>
+          <p class="wf-note query" data-note="7"><span class="wf-note-label">Open question</span>We've used the hours on the Location page. The footer says viewings run Monday to Saturday, and AutoTrader shows 09:00 to 18:00 weekdays and 10:00 to 16:00 on Saturday. Which is right?</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

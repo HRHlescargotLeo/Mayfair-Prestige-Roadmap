@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previously sold – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Previously sold</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Show the sold cars as a gallery with their photos, filter them by marque, search them, and put "find me one like this" on every one, which opens the sourcing brief already filled in.</p></div>
+          <div><h2>Why</h2><p>Previously Sold lists <span data-count="sold">84</span> car names, nine to a page over ten pages, in alphabetical order. The names aren't links, and the 84 addresses the sitemap gives for them all return "page not found". Seven Bugatti Veyrons, an Enzo and an F40 are buried on pages four to eight.</p><p>As evidence of what Mayfair Prestige can find, it's the best thing on the site. It just isn't presented as such.</p></div>
+        </div>
+        <p class="proposal-foot">Names and order are as on the live site. Years and sale dates aren't published, so the cards don't show them.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="sold-app">
+      <div class="page-head" style="margin-top:0"><span class="eyebrow">Previously sold</span><h1>Cars we've found for our clients</h1><p>A selection of the <span data-count="sold">84</span> cars that have passed through our showroom. If you'd like one like them, we'll look.</p></div>
+
+      <!-- Filter and search (R43) -->
+      <div class="chip-set" id="s-makes" role="group" aria-label="Marque" style="margin-bottom:1rem"></div>
+      <div class="sold-tools">
+        <div class="field"><label for="s-search">Search</label><input type="search" id="s-search" placeholder="For example, Speciale"></div>
+        <div class="field"><label for="s-sort">Order</label><select id="s-sort"><option value="az">A to Z</option><option value="za">Z to A</option></select></div>
+      </div>
+      <p class="result-count" aria-live="polite"><strong id="s-count">84 cars</strong></p>
+
+      <div class="sold-grid" id="s-grid"></div>
+      <div class="row" style="justify-content:center;margin-top:1.5rem"><button type="button" class="btn btn-secondary" id="s-more">Show more</button></div>
+
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>24 cars at a time with "Show more", rather than ten pages of nine. Each card's "Find me one like this" opens the sourcing brief in prototype 4 with the marque and model filled in.</p>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Are there records of year and month sold? Even the year would help, and "sold in 2026" is a stronger signal than an undated list. Should the 84 dead sitemap addresses be removed or redirected here?</p>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

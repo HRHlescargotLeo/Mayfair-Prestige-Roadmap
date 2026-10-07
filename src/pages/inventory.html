@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · The showroom online · Inventory</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Filters down the side that say how many cars each choice leaves, a sort control, budget bands that reach the whole range, collections as one-tap shortcuts, and cards that show colour and the number of photos instead of top speed. Any car can be saved to a shortlist, and up to three compared side by side. On a phone the filters fold into a single button, so the first car is on the first screen.</p></div>
+          <div><h2>Why</h2><p>Today the list is always most expensive first, with no way to change it. Price is a maximum only, starting at £50,000, so the five cars below that can't be found by budget at all. Mileage is a list of 85 options in 1,000-mile steps.</p><p>On a phone the hero photo and six stacked dropdowns come first, and the first car appears about 1,178px down the page. Someone browsing on the way home has given up long before that.</p></div>
+        </div>
+        <p class="proposal-foot">Colours and statuses are sample data. The shortlist and comparison are kept for the visit only.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="inv-app">
+      <div class="page-head inv-head-desktop" style="margin-top:0">
+        <h1>Our cars</h1>
+        <p><span data-result-count>40 cars</span> in stock, each one inspected and prepared in Marylebone.</p>
+      </div>
+
+      <!-- Collections (R11) -->
+      <div class="chip-set" id="coll-chips" role="group" aria-label="Collections" style="margin:1rem 0">
+        <button type="button" class="chip" data-coll="rolls-royce" aria-pressed="false">Rolls-Royce <span class="ct">0</span></button>
+        <button type="button" class="chip" data-coll="ferrari" aria-pressed="false">Ferrari <span class="ct">0</span></button>
+        <button type="button" class="chip" data-coll="g-class" aria-pressed="false">G-Class <span class="ct">0</span></button>
+        <button type="button" class="chip" data-coll="classics" aria-pressed="false">Classics <span class="ct">0</span></button>
+        <button type="button" class="chip" data-coll="electric" aria-pressed="false">Electric and hybrid <span class="ct">0</span></button>
+        <button type="button" class="chip" data-coll="suv" aria-pressed="false">SUVs <span class="ct">0</span></button>
+      </div>
+
+      <!-- Mobile filter and sort bar (R15) -->
+      <div class="filter-mobile">
+        <button type="button" class="btn btn-secondary" id="open-filters" aria-controls="filters" aria-expanded="false">Filter and sort<span data-filter-count></span></button>
+        <button type="button" class="btn btn-secondary shortlist-btn" data-drawer-open="shortlist">Shortlist (<span data-saved-count>0</span>)</button>
+      </div>
+
+      <div class="inv-layout">
+        <!-- Filters (R13, R14) -->
+        <aside class="filters" id="filters" aria-label="Filters">
+          <div class="filter-head"><h2>Filter</h2><span class="small muted" data-result-count>40 cars</span></div>
+          <div class="field"><label for="f-make">Make</label><select id="f-make"></select></div>
+          <div class="field"><label for="f-model">Model</label><select id="f-model"></select></div>
+          <fieldset><legend class="small">Budget</legend><div class="two"><div><label for="f-pmin" class="small muted">From</label><select id="f-pmin"></select></div><div><label for="f-pmax" class="small muted">To</label><select id="f-pmax"></select></div></div></fieldset>
+          <div class="field"><label for="f-miles">Mileage</label><select id="f-miles"></select></div>
+          <div class="field"><label for="f-era">Year</label><select id="f-era"></select></div>
+          <div class="field"><label for="f-body">Body style</label><select id="f-body"></select></div>
+          <div class="field"><label for="f-colour">Colour</label><select id="f-colour"></select></div>
+          <div class="field"><label for="f-gearbox">Gearbox</label><select id="f-gearbox"></select></div>
+          <div class="field"><label for="f-fuel">Fuel</label><select id="f-fuel"></select></div>
+          <div class="field filter-sort-m"><label for="m-sort">Sort</label><select id="m-sort"></select></div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each option shows how many cars it would leave, given the other filters. Options that would leave none are greyed out.</p>
+          <div class="filters-close"><button type="button" class="btn" data-close-filters>Show <span data-result-count>40 cars</span></button><button type="button" class="btn btn-secondary" data-close-filters>Close</button></div>
+        </aside>
+
+        <div>
+          <!-- Results bar and sort (R12) -->
+          <div class="results-bar" id="results-top">
+            <strong data-result-count>40 cars</strong>
+            <div class="row">
+              <div class="field"><label for="f-sort">Sort by</label>
+                <select id="f-sort">
+                  <option value="price-desc">Price, highest first</option>
+                  <option value="price-asc">Price, lowest first</option>
+                  <option value="newest">Newest arrivals</option>
+                  <option value="miles">Lowest mileage</option>
+                  <option value="year-desc">Year, newest first</option>
+                  <option value="year-asc">Year, oldest first</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm shortlist-btn" data-drawer-open="shortlist">Shortlist (<span data-saved-count>0</span>)</button>
+            </div>
+          </div>
+          <div class="active-filters" id="active-filters" aria-live="polite"></div>
+
+          <!-- Results (R16–R19) -->
+          <div class="car-grid" id="results" aria-live="polite"></div>
+          <ul class="pagination" id="pages" aria-label="Pages"></ul>
+
+          <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Cards show colour and the photo count in place of top speed. Titles wrap rather than cut off. A car without photography shows "Photography in progress" rather than "Image coming soon"; we'd suggest holding it back from the list until it has photos.</p>
+          <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Tick Compare on two or three cars and a tray appears at the foot of the screen. The shortlist and the comparison last for the visit; we'd offer to email the shortlist, with consent.</p>
+          <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>An empty search ends in "Find me a car", which goes to the sourcing brief in prototype 4. Is sourcing something Mayfair Prestige wants to promote this openly?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shortlist drawer (R19) -->
+    <aside class="drawer" id="shortlist" aria-hidden="true" aria-label="Your shortlist">
+      <div class="drawer-head"><h2>Your shortlist</h2><button type="button" class="btn-link" data-drawer-close>Close</button></div>
+      <div class="drawer-body" id="shortlist-body"></div>
+      <div class="drawer-foot" id="shortlist-foot" hidden><button type="button" class="btn" id="shortlist-email">Email me this shortlist</button><a class="btn btn-secondary" href="~/pages/viewing.html">Book a viewing</a></div>
+    </aside>
+
+    <!-- Compare tray and table (R19) -->
+    <div class="compare-tray" id="compare-tray" hidden>
+      <div class="container">
+        <strong>Compare</strong>
+        <div class="slots" id="compare-slots"></div>
+        <button type="button" class="btn" id="compare-go" disabled>Compare</button>
+        <button type="button" class="btn-link" id="compare-clear">Clear</button>
+      </div>
+    </div>
+    <div class="wf-modal" id="compare-modal" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+      <div class="wf-modal-panel wide">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <h2 id="compare-title">Side by side</h2>
+        <div class="compare-table-wrap"><table class="compare-table" id="compare-table"></table></div>
+        <p class="small muted">* Indicative monthly figure on hire purchase with 20% deposit over 48 months at an illustrative rate. Not a quote. Colour, interior and owners are sample data.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Contact</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Put the ways to get in touch at the top: phone, WhatsApp, email, the address, opening hours and directions. Below that, four short forms for the four things people actually get in touch about, and the people they'll be dealing with.</p></div>
+          <div><h2>Why</h2><p>The contact page is a form and nothing else. It opens with a 13-option "Nature of Enquiry" list, and asks for make, model and registration as typed text even when you've just come from a car. The phone number isn't on the page, and no number anywhere on the site can be tapped to call.</p><p>The Meet the Team page lists a photographer, a head detailer and a valeter. Daniel, who is named in six of the eight testimonials, isn't on it.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container" id="contact-app">
+      <div class="page-head" style="margin-top:0"><h1>Contact us</h1><p>Viewings are by appointment. Call, message or send us a note and we'll come back to you [the same day].</p></div>
+
+      <!-- Contact details first (R04, R05, R32) -->
+      <section class="contact-top" aria-label="Contact details">
+        <div class="panel"><span class="small muted">Call</span><a class="big" data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a><span class="small">Tap to call on a phone</span></div>
+        <div class="panel"><span class="small muted">WhatsApp</span><a class="big" data-wa-generic href="https://wa.me/447791777777"><span data-fact="whatsapp">+44 7791 777777</span></a><span class="small">[Usually answered within the hour]</span></div>
+        <div class="panel"><span class="small muted">Email</span><a data-fact="email-link" href="mailto:info@mayfairprestigeuk.co.uk">info@mayfairprestigeuk.co.uk</a></div>
+        <div class="panel"><span class="small muted">Showroom</span><span data-fact="address">91 Crawford Street</span><dl class="hours" data-fact="hours"></dl></div>
+      </section>
+      <p class="wf-note query" data-note="1"><span class="wf-note-label">Open question</span>The site shows 020 7723 2860; AutoTrader shows (020) 8022 2494. Is the second a call-tracking number, and which should the website use? We'd also want to confirm "usually answered within the hour" before saying it.</p>
+
+      <!-- Four routes (R32, R33) -->
+      <section aria-labelledby="routes-title" style="margin-top:2rem">
+        <h2 id="routes-title">What can we help with?</h2>
+        <div class="tabs route-tabs" aria-label="Enquiry type">
+          <button type="button" class="tab active" data-tab="route-buying">Buying a car</button>
+          <button type="button" class="tab" data-tab="route-selling">Selling a car</button>
+          <button type="button" class="tab" data-tab="route-finance">Finance</button>
+          <button type="button" class="tab" data-tab="route-services">Storage and services</button>
+        </div>
+        <div class="split">
+          <div>
+            <div class="tab-panel active" id="route-buying">
+              <div class="car-summary" data-summary hidden></div>
+              <form data-confirm="c-buy-done" id="c-buy">
+                <div class="form-grid">
+                  <div class="field full"><label for="cb-car">Which car? (optional)</label><input type="text" id="cb-car" data-car-field placeholder="For example, 2020 Rolls-Royce Cullinan"></div>
+                  <div class="field"><label for="cb-name">Name <span class="req">*</span></label><input type="text" id="cb-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                  <div class="field"><label for="cb-phone">Phone <span class="req">*</span></label><input type="tel" id="cb-phone" autocomplete="tel" required data-error="Please give a phone number."></div>
+                  <div class="field full"><label for="cb-email">Email <span class="req">*</span></label><input type="email" id="cb-email" autocomplete="email" required data-error="Please enter an email address, like name@example.com."></div>
+                  <div class="field full"><label for="cb-msg">Your question</label><textarea id="cb-msg" rows="4"></textarea></div>
+                </div>
+                <button type="submit" class="btn">Send</button>
+              </form>
+              <div class="confirm" id="c-buy-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPC">MPC-0000</span>. One of the sales team will be in touch [today].</p><p><a href="~/pages/viewing.html">Book a viewing</a> if you already know when you'd like to come in.</p></div>
+            </div>
+
+            <div class="tab-panel" id="route-selling">
+              <form data-confirm="c-sell-done" id="c-sell">
+                <div class="form-grid">
+                  <div class="field"><label for="cs-reg">Registration <span class="req">*</span></label><input type="text" id="cs-reg" required data-error="Please enter the registration."></div>
+                  <div class="field"><label for="cs-miles">Mileage <span class="req">*</span></label><input type="number" id="cs-miles" inputmode="numeric" required data-error="Please enter the mileage."></div>
+                  <div class="field"><label for="cs-name">Name <span class="req">*</span></label><input type="text" id="cs-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                  <div class="field"><label for="cs-phone">Phone <span class="req">*</span></label><input type="tel" id="cs-phone" autocomplete="tel" required data-error="Please give a phone number."></div>
+                  <div class="field full"><label class="check"><input type="checkbox" id="cs-coll"> I have more than one car to sell (a collection)</label></div>
+                </div>
+                <button type="submit" class="btn">Ask for a valuation</button>
+              </form>
+              <div class="confirm" id="c-sell-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPS">MPS-0000</span>. A specialist will review the car and call you [within one working day].</p></div>
+              <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>The full three-step valuation stays as it is today; this is the short version for people who'd rather talk. Prototype 4 adds what happens after a valuation.</p>
+            </div>
+
+            <div class="tab-panel" id="route-finance">
+              <form data-confirm="c-fin-done" id="c-fin">
+                <div class="form-grid">
+                  <div class="field full"><label for="cf-car">Which car? (optional)</label><input type="text" id="cf-car" data-car-field></div>
+                  <div class="field"><label for="cf-name">Name <span class="req">*</span></label><input type="text" id="cf-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                  <div class="field"><label for="cf-phone">Phone <span class="req">*</span></label><input type="tel" id="cf-phone" autocomplete="tel" required data-error="Please give a phone number."></div>
+                  <div class="field full"><label for="cf-type">I'm buying as</label><select id="cf-type"><option>An individual</option><option>A business</option></select></div>
+                </div>
+                <button type="submit" class="btn">Ask about finance</button>
+              </form>
+              <div class="confirm" id="c-fin-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPF">MPF-0000</span>. Tristan Bryant, our finance specialist, will call you.</p></div>
+            </div>
+
+            <div class="tab-panel" id="route-services">
+              <form data-confirm="c-svc-done" id="c-svc">
+                <div class="form-grid">
+                  <div class="field full"><label for="cv-svc">Service <span class="req">*</span></label><select id="cv-svc" required data-error="Please choose a service."><option value="">Choose</option><option>Storage</option><option>Delivery or transport</option><option>Armoured vehicles</option><option>Bespoke and conversions</option></select></div>
+                  <div class="field"><label for="cv-name">Name <span class="req">*</span></label><input type="text" id="cv-name" autocomplete="name" required data-error="Please tell us your name."></div>
+                  <div class="field"><label for="cv-phone">Phone <span class="req">*</span></label><input type="tel" id="cv-phone" autocomplete="tel" required data-error="Please give a phone number."></div>
+                  <div class="field full"><label for="cv-msg">Tell us a little more</label><textarea id="cv-msg" rows="3"></textarea></div>
+                </div>
+                <button type="submit" class="btn">Send</button>
+              </form>
+              <div class="confirm" id="c-svc-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPX">MPX-0000</span>. We'll be in touch [today].</p></div>
+            </div>
+          </div>
+          <aside class="stack">
+            <div class="wf-placeholder ratio-4-3">Map · 91 Crawford Street, W1H 2HD</div>
+            <p class="small" style="margin:0">A short walk from Baker Street and Marylebone stations, and close to the A40. [Parking arrangements to confirm.]</p>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=91+Crawford+Street+London+W1H+2HD" target="_blank" rel="noopener">Get directions</a>
+          </aside>
+        </div>
+        <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Four routes instead of 13 enquiry types, each asking only what's needed to reply. Arriving from a car fills in the car. Each sends to a different inbox, so finance enquiries reach the finance specialist directly.</p>
+      </section>
+
+      <!-- The team (R36) -->
+      <section aria-labelledby="team-title">
+        <h2 id="team-title" class="section-title">Who you'll deal with</h2>
+        <div class="team">
+          <div class="person"><div class="wf-placeholder">Portrait</div><b>Amir Jabir</b><p class="muted">Founder</p></div>
+          <div class="person"><div class="wf-placeholder">Portrait</div><b>Daniel [surname]</b><p class="muted">Sales</p></div>
+          <div class="person"><div class="wf-placeholder">Portrait</div><b>Tristan Bryant</b><p class="muted">Finance specialist</p></div>
+          <div class="person"><div class="wf-placeholder">Portrait</div><b>Peter Baker</b><p class="muted">Photographer and social media</p></div>
+          <div class="person"><div class="wf-placeholder">Portrait</div><b>Stuart Seymour</b><p class="muted">Head detailer</p></div>
+        </div>
+        <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Is Daniel happy to appear, and what are his surname and role? Is Tristan Bryant part of the team or a partner? A line about each person, and a direct number for sales and finance, would make this more useful.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

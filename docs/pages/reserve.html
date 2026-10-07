@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve a car – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Reserve a car</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Show the car being reserved at the top of the page, explain in three lines what reserving involves, and only then ask for details. The confirmation gives a reference and says who will call. Later, if Mayfair Prestige wants it, the same page could take a refundable holding deposit online.</p></div>
+          <div><h2>Why</h2><p>Today's Reserve page says "Please fill out the following form for a Mayfair Prestige representative to get in touch with you." The make, model and registration travel in hidden fields, so the buyer never sees which car they're reserving, and nothing says whether money changes hands, for how long the car is held or what happens if they change their mind.</p><p>Someone about to commit to a six-figure car would reasonably want to know.</p></div>
+        </div>
+        <p class="proposal-foot">The terms in square brackets are placeholders; we don't know Mayfair Prestige's reservation terms. Defaults to the 2020 Rolls-Royce Cullinan if no car is chosen.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="reserve-app">
+      <div class="page-head" style="margin-top:0"><h1>Reserve this car</h1><p>Hold the <span data-car-name>car</span> while you arrange a viewing or finance.</p></div>
+      <div class="split">
+        <div>
+          <!-- The car (R31, R35) -->
+          <div class="car-summary" data-summary></div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The car is passed by stock number, not registration. Today the plate is in the address (…&amp;registration=GV64XDZ).</p>
+
+          <!-- How reserving works (R31) -->
+          <section aria-labelledby="how-title">
+            <h2 id="how-title">How reserving works</h2>
+            <ol class="how-list">
+              <li><p><b>We hold the car for you.</b> It's marked Reserved on the website and we won't offer it to anyone else for [72 hours].</p></li>
+              <li><p><b>A holding deposit of [£X] secures it.</b> We'll call to take it by card. It's [fully refundable if you decide not to go ahead / deducted from the price].</p></li>
+              <li><p><b>You view, arrange finance or part exchange,</b> and we agree a collection or delivery date.</p></li>
+            </ol>
+            <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>What does reserving mean today: a deposit, a hold for a set time, or a callback? Is any deposit refundable, and would Mayfair Prestige want to take it online?</p>
+          </section>
+
+          <!-- Form (R33, R34) -->
+          <section aria-labelledby="form-title">
+            <h2 id="form-title">Your details</h2>
+            <form id="r-form">
+              <div class="form-grid">
+                <div class="field"><label for="r-fullname">Name <span class="req">*</span></label><input type="text" id="r-fullname" autocomplete="name" required data-error="Please tell us your name."></div>
+                <div class="field"><label for="r-phone">Mobile <span class="req">*</span></label><input type="tel" id="r-phone" autocomplete="tel" required data-error="Please give a number we can call to take the deposit."></div>
+                <div class="field full"><label for="r-email">Email <span class="req">*</span></label><input type="email" id="r-email" autocomplete="email" required data-error="Please enter an email address, like name@example.com."></div>
+                <div class="field full"><label for="r-msg">Anything we should know? (optional)</label><textarea id="r-msg" rows="3"></textarea></div>
+                <div class="field full stack" style="gap:0.5rem">
+                  <label class="check"><input type="checkbox" id="r-fin"> I'd like to talk about finance</label>
+                  <label class="check"><input type="checkbox" id="r-px"> I have a car to part exchange</label>
+                </div>
+                <div class="field full"><label class="check"><input type="checkbox" id="r-terms" required data-error="Please confirm you've read how reserving works."> I've read how reserving works <span class="req">*</span></label></div>
+              </div>
+              <button type="submit" class="btn">Reserve this car</button>
+            </form>
+            <div class="confirm" id="r-done" hidden>
+              <h2>Thank you, <span id="r-name">we've got your request</span></h2>
+              <p>Your reference is <span class="ref" id="r-ref">MPR-0000</span></p>
+              <p>We'll call you within [one working hour] to take the holding deposit. Until then the <span data-car-name>car</span> is marked Reserved for you.</p>
+              <div class="row"><a class="btn btn-secondary" href="../pages/viewing.html">Book a viewing</a><a class="btn btn-secondary" href="../pages/finance.html">Look at finance</a></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel surface stack" aria-label="Talk to us">
+          <h2 class="small" style="text-transform:uppercase;letter-spacing:0.06em;margin:0">Rather talk first?</h2>
+          <div class="contact-line"><span>Call <a data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a></span></div>
+          <div class="contact-line"><span>WhatsApp <a data-fact="wa-link" href="https://wa.me/447791777777">+44 7791 777777</a></span></div>
+          <dl class="hours" data-fact="hours"></dl>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

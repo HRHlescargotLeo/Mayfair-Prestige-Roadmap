@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private services – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Private services</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One page for the things Mayfair Prestige does besides selling cars from stock: armoured vehicles, bespoke work and conversions, storage, delivery and helping buyers from abroad. Each has a short explanation and its own private enquiry, and storage gets a cost calculator built from the price already published.</p><p>A <a href="../pages/finance.html">finance page</a> with an indicative calculator completes the prototype.</p></div>
+          <div><h2>Why</h2><p>The homepage tile for armoured vehicles links to the general inventory, which has no armoured cars and no way to filter for them, while the copy beneath describes sales to embassies, government officials and royalty. Bespoke work gets a paragraph mentioning "barbs conversions" and nowhere to go.</p><p>Storage is the exception: it states the price and the minimum term. It deserves photos and an easier way to ask.</p></div>
+        </div>
+        <p class="proposal-foot">Text in square brackets needs Mayfair Prestige's input. Protection levels are given as the standards buyers will recognise; which ones Mayfair Prestige can supply is an open question.</p>
+      </div>
+    </aside>
+
+    <!-- In-page navigation (R50) -->
+    <nav class="inpage" aria-label="Services">
+      <div class="container"><ul>
+        <li><a href="#armoured">Armoured vehicles</a></li>
+        <li><a href="#bespoke">Bespoke and conversions</a></li>
+        <li><a href="#storage">Storage</a></li>
+        <li><a href="#delivery">Delivery and transport</a></li>
+        <li><a href="#abroad">Buying from abroad</a></li>
+        <li><a href="../pages/finance.html">Finance</a></li>
+      </ul></div>
+    </nav>
+
+    <div class="container" id="services-app">
+      <!-- Armoured vehicles (R51) -->
+      <section class="svc" id="armoured" aria-labelledby="arm-title">
+        <span class="eyebrow">Armoured vehicles</span>
+        <h1 id="arm-title">Protection, sourced discreetly</h1>
+        <div class="svc-grid">
+          <div>
+            <p class="lead">We have supplied armoured vehicles for many years, to private clients, companies, embassies and government officials, working with specialist armouring manufacturers.</p>
+            <h2 class="h4">What we can source</h2>
+            <p>[Saloons, SUVs and executive vehicles armoured to recognised ballistic and blast standards, new or pre-owned, with right- or left-hand drive.]</p>
+            <div class="levels">
+              <div><b>CEN 1063 / EN 1522</b><span>Glass and body ballistic levels, typically B4 to B7</span></div>
+              <div><b>VPAM VR</b><span>Vehicle resistance classes, typically VR6 to VR10</span></div>
+              <div><b>Blast</b><span>[Underfloor and side blast protection, to confirm]</span></div>
+            </div>
+            <h2 class="h4" style="margin-top:1.5rem">How we handle enquiries</h2>
+            <ol class="how-list">
+              <li><p>Your enquiry goes to [named director] only, not the general inbox.</p></li>
+              <li><p>We'll talk on the phone or meet in person before anything is written down.</p></li>
+              <li><p>We never name clients, show their vehicles or publish photographs without consent.</p></li>
+            </ol>
+          </div>
+          <div class="panel">
+            <h2 class="h4">Private enquiry</h2>
+            <form id="arm-form" data-confirm="arm-done">
+              <div class="field"><label for="arm-name">Name <span class="req">*</span></label><input type="text" id="arm-name" required data-error="Please give a name we can use."></div>
+              <div class="field"><label for="arm-phone">Phone <span class="req">*</span></label><input type="tel" id="arm-phone" required data-error="Please give a phone number."></div>
+              <div class="field"><label for="arm-org">Organisation (optional)</label><input type="text" id="arm-org"></div>
+              <div class="field"><label for="arm-how">Best way to reach you</label><select id="arm-how"><option>Phone call</option><option>Meet in person</option><option>Email</option></select></div>
+              <button type="submit" class="btn btn-block">Send privately</button>
+            </form>
+            <div class="confirm" id="arm-done" hidden><h3>Received</h3><p>Reference <span class="ref" data-ref="MPP">MPP-0000</span>. [Named director] will call you personally.</p></div>
+          </div>
+        </div>
+        <p class="wf-note query" data-note="1"><span class="wf-note-label">Open question</span>How much is Mayfair Prestige comfortable saying in public, given the clients involved? The page shows no stock unless they want it to. /sitemap.xml currently returns a sitemap for mfpservices.co.uk, which lists armoured vehicle hire and close protection. Is that a sister business that should be linked from here?</p>
+      </section>
+
+      <!-- Bespoke (R52) -->
+      <section class="svc" id="bespoke" aria-labelledby="besp-title">
+        <span class="eyebrow">Bespoke and conversions</span>
+        <h2 id="besp-title">Made to your specification</h2>
+        <div class="svc-grid">
+          <div>
+            <p>We work with specialist tuning and conversion houses on everything from Brabus performance upgrades to executive Mercedes V-Class interiors, for clients around the world.</p>
+            <div class="grid grid-3">
+              <div class="card"><div class="wf-placeholder ratio-4-3">Project photo</div><span class="card-title">[Project name]</span><span class="card-text">[What was done, for whom in general terms]</span></div>
+              <div class="card"><div class="wf-placeholder ratio-4-3">Project photo</div><span class="card-title">[Project name]</span><span class="card-text">[What was done]</span></div>
+              <div class="card"><div class="wf-placeholder ratio-4-3">Project photo</div><span class="card-title">[Project name]</span><span class="card-text">[What was done]</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3 class="h4">Talk to us about a project</h3>
+            <form id="besp-form" data-confirm="besp-done">
+              <div class="field"><label for="b-car">Car, or the car you'd like</label><input type="text" id="b-car"></div>
+              <div class="field"><label for="b-what">What would you like done? <span class="req">*</span></label><textarea id="b-what" rows="3" required data-error="Please tell us a little about the project."></textarea></div>
+              <div class="field"><label for="b-name">Name <span class="req">*</span></label><input type="text" id="b-name" required data-error="Please tell us your name."></div>
+              <div class="field"><label for="b-phone">Phone <span class="req">*</span></label><input type="tel" id="b-phone" required data-error="Please give a phone number."></div>
+              <button type="submit" class="btn btn-block">Send</button>
+            </form>
+            <div class="confirm" id="besp-done" hidden><h3>Thank you</h3><p>Reference <span class="ref" data-ref="MPD">MPD-0000</span>. We'll call to talk it through.</p></div>
+          </div>
+        </div>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Are there past projects that could be shown, with the client's permission? Three good examples would carry this section.</p>
+      </section>
+
+      <!-- Storage (R53) -->
+      <section class="svc" id="storage" aria-labelledby="stor-title">
+        <span class="eyebrow">Storage</span>
+        <h2 id="stor-title">Storage in central London</h2>
+        <div class="svc-grid">
+          <div>
+            <div class="wf-placeholder ratio-16-9" style="margin-bottom:1rem">Photo · storage facility</div>
+            <p>Specialist storage for rare and high-value cars, for our own clients and others. Standard access is 09:00 to 18:00, with 24-hour access when booked ahead.</p>
+            <h3 class="h4">Included</h3>
+            <ul style="padding-left:1.25rem">
+              <li>[Secure, alarmed and monitored building]</li>
+              <li>[Battery conditioning]</li>
+              <li>[Wash and detail before collection]</li>
+              <li>[Collection and delivery, at extra cost]</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <div class="calc-out" aria-live="polite">
+              <label for="st-months">How long? <span class="range-val" id="st-months-val">6 months</span></label>
+              <input type="range" id="st-months" min="1" max="24" value="6">
+              <span class="small muted">Estimated cost</span>
+              <span class="big" id="st-total">£5,700</span>
+              <span class="small" id="st-note"></span>
+            </div>
+            <form id="st-form" data-confirm="st-done" class="panel">
+              <div class="field"><label for="st-car">Car <span class="req">*</span></label><input type="text" id="st-car" required data-error="Please tell us the car."></div>
+              <div class="field"><label for="st-start">From</label><input type="date" id="st-start"></div>
+              <div class="field"><label for="st-name">Name <span class="req">*</span></label><input type="text" id="st-name" required data-error="Please tell us your name."></div>
+              <div class="field"><label for="st-phone">Phone <span class="req">*</span></label><input type="tel" id="st-phone" required data-error="Please give a phone number."></div>
+              <button type="submit" class="btn btn-block">Ask about storage</button>
+            </form>
+            <div class="confirm" id="st-done" hidden><h3>Thank you</h3><p>Reference <span class="ref" data-ref="MPT">MPT-0000</span>. We'll confirm space and arrange a visit.</p></div>
+          </div>
+        </div>
+        <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>The calculator uses the price on the live page: £950 a month with a 12-week minimum. Anything under three months is charged as three.</p>
+      </section>
+
+      <!-- Delivery (R54) -->
+      <section class="svc" id="delivery" aria-labelledby="del-title">
+        <span class="eyebrow">Delivery and transport</span>
+        <h2 id="del-title">To your door, wherever that is</h2>
+        <div class="svc-grid">
+          <p>Whether it's your new car to your driveway or a car of yours moved across the country or abroad, we arrange enclosed transport by road, sea or air through trusted partners.</p>
+          <form id="del-form" data-confirm="del-done" class="panel">
+            <div class="form-grid">
+              <div class="field"><label for="d-from">From <span class="req">*</span></label><input type="text" id="d-from" required data-error="Where is the car now?"></div>
+              <div class="field"><label for="d-to">To <span class="req">*</span></label><input type="text" id="d-to" required data-error="Where should it go?"></div>
+              <div class="field"><label for="d-car">Car</label><input type="text" id="d-car"></div>
+              <div class="field"><label for="d-date">By</label><input type="date" id="d-date"></div>
+              <div class="field"><label for="d-name">Name <span class="req">*</span></label><input type="text" id="d-name" required data-error="Please tell us your name."></div>
+              <div class="field"><label for="d-phone">Phone <span class="req">*</span></label><input type="tel" id="d-phone" required data-error="Please give a phone number."></div>
+            </div>
+            <button type="submit" class="btn">Ask for a quote</button>
+          </form>
+          <div class="confirm" id="del-done" hidden><h3>Thank you</h3><p>Reference <span class="ref" data-ref="MPL">MPL-0000</span>. We'll send a quote [within one working day].</p></div>
+        </div>
+      </section>
+
+      <!-- Buying from abroad (R56) -->
+      <section class="svc" id="abroad" aria-labelledby="abr-title">
+        <span class="eyebrow">Buying from abroad</span>
+        <h2 id="abr-title">Buying from outside the UK</h2>
+        <div class="accordion">
+          <div class="accordion-item"><button type="button" class="accordion-title">Can I see the car without coming to London?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Yes. We'll walk you round it on a video call and send any extra photos or videos you'd like. <a href="../pages/viewing.html">Book a video call</a>.</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title">How do I pay?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>[Bank transfer in sterling; other currencies by arrangement. To confirm.]</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title">Who handles export paperwork?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>[We prepare the export documents and can recommend agents for import in your country. To confirm.]</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title">How is the car shipped?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>By enclosed road transport within Europe, and by container or air freight further afield. <a href="#delivery">Ask for a quote</a>.</p></div></div>
+          <div class="accordion-item"><button type="button" class="accordion-title">Do you sell left-hand-drive cars?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Sometimes, and we can source them. The Microlino in stock today is left-hand drive.</p></div></div>
+        </div>
+        <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Where do overseas buyers come from? If analytics show demand from particular countries, key pages could be translated later.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

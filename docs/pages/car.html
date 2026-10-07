@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car page – Mayfair Prestige prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="../pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
+          <li><a href="../pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
+          <li><a href="../pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="../pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
+        </ul>
+      </nav>
+      <!-- Notes switch (R02) -->
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · Every car, properly presented</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Put the price, mileage, colour, owners and the three next steps beside the photos, where a buyer looks first. Below them, a list of the things a buyer of a £300,000 car will ask about anyway: owners, service history, warranty, where it was supplied, what it was specified with. Then a short description written about this particular car, a video walkaround, a finance figure and cars like it.</p><p>Behind the scenes each car gets its own page title, description and structured data, so search engines see 40 cars rather than one page 40 times.</p></div>
+          <div><h2>Why</h2><p>On the live site the 2014 458 Speciale, at £519,950 the most expensive car in stock, has its price under a long general description, which finds room to mention the Bluetooth. Mileage isn't in the Car Details panel. "Arrange a Viewing" and "Reserve Now" go to the same form.</p><p>Every car page currently has the title "Vehicle Detail | Mayfair Prestige" and tells search engines its real address is /vehicle-detail/. In practice that means someone searching for a used Phantom in London is unlikely to land on any of the five Mayfair Prestige has.</p></div>
+        </div>
+        <p class="proposal-foot">Open any car from the inventory to load it here; by default it shows the 2014 Ferrari 458 Speciale. Key information, options and the description are sample content.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="car-app">
+      <p class="small" style="margin:1rem 0"><a href="../pages/inventory.html">‹ Back to all cars</a></p>
+
+      <!-- Title, gallery and key facts (R20, R22, R24) -->
+      <section class="car-top" aria-label="Photos and key facts">
+        <div>
+          <div class="car-title"><h1 data-car="name">2014 Ferrari 458</h1><p class="muted" data-car="der">4.5 Speciale F1 DCT Euro 5 2dr</p></div>
+          <div class="gallery-main">
+            <div class="wf-placeholder" id="g-main" data-photo-n="0">Photo 1</div>
+            <button type="button" class="g-arrow g-prev" data-g-step="-1" aria-label="Previous photo">‹</button>
+            <button type="button" class="g-arrow g-next" data-g-step="1" aria-label="Next photo">›</button>
+            <button type="button" class="btn btn-secondary btn-sm g-full" data-modal-open="fullscreen">Full screen</button>
+            <span class="g-count" id="g-count">1 / 46</span>
+          </div>
+          <div class="g-groups" id="g-groups" role="group" aria-label="Photo groups"></div>
+          <div class="thumbs" id="thumbs"></div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Photos are grouped into Exterior, Interior and Details using the order the photographer already names them in (front-right, steering-wheel, wheel). Full screen works with the arrow keys and by swiping on a phone.</p>
+        </div>
+
+        <aside class="facts panel" aria-label="Key facts">
+          <div>
+            <p class="price" data-car="price">£519,950</p>
+            <p class="fin">or from <b id="fin-from">£0</b> a month* · <a id="fin-link" href="../pages/finance.html">Work out your own</a></p>
+          </div>
+          <dl class="kv">
+            <dt>Mileage</dt><dd data-car="miles">6,500 miles</dd>
+            <dt>Year</dt><dd data-car="year">2014</dd>
+            <dt>Colour</dt><dd data-car="colour">Rosso Corsa</dd>
+            <dt>Interior</dt><dd data-car="interior">Nero leather</dd>
+            <dt>Gearbox</dt><dd data-car="gearbox">Automatic</dd>
+            <dt>Owners</dt><dd data-car="owners">2</dd>
+            <dt>Stock number</dt><dd data-car="stock">MP2101</dd>
+          </dl>
+          <div class="actions">
+            <a class="btn btn-block" data-go="viewing" href="../pages/viewing.html">Book a viewing</a>
+            <div class="two"><a class="btn btn-secondary" data-go="reserve" href="../pages/reserve.html">Reserve this car</a><button type="button" class="btn btn-secondary" data-save="2014-ferrari-458" aria-pressed="false">Save</button></div>
+          </div>
+          <div class="phone-box">
+            <span>Call <a data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a></span>
+            <span>or <a data-wa-car href="https://wa.me/447791777777">message us on WhatsApp</a></span>
+            <span class="small muted">Opens with: "<span id="wa-msg"></span>"</span>
+            <button type="button" class="btn-link small" data-modal-open="share-modal" style="justify-self:start">Share this car</button>
+          </div>
+          <p class="small muted" style="margin:0">* Hire purchase, 20% deposit, 48 months, illustrative rate. Not a quote or a representative example.</p>
+          <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Three different actions: a viewing request with a date and time (prototype 3), a reservation with the terms explained first, and call or WhatsApp with the car and stock number already in the message. On a phone, price and Enquire stay pinned to the bottom of the screen.</p>
+          <p class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Can a finance figure be shown on every car? It would need a representative example and sign-off as a financial promotion.</p>
+        </aside>
+      </section>
+
+      <!-- Key information (R21) -->
+      <section aria-labelledby="ki-title" style="margin-top:2.5rem">
+        <h2 id="ki-title" class="section-title">Key information</h2>
+        <ul class="keyinfo" id="keyinfo"></ul>
+        <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Which of these can the stock feed supply, and which would the sales team add by hand? Owners and supplied-in usually come with the vehicle data; service history and warranty usually don't.</p>
+      </section>
+
+      <!-- About this car (R21) -->
+      <section aria-labelledby="about-title">
+        <h2 id="about-title" class="section-title">About this car</h2>
+        <div class="split">
+          <div>
+            <p data-car="desc">Description</p>
+            <h3>Specified with</h3>
+            <ul class="options-list" id="options"></ul>
+          </div>
+          <div class="stack">
+            <div class="tabs" aria-label="Specification">
+              <button type="button" class="tab active" data-tab="spec-car">The car</button>
+              <button type="button" class="tab" data-tab="spec-perf">Performance</button>
+            </div>
+            <div>
+              <div class="tab-panel active" id="spec-car">
+                <dl class="kv"><dt>Body</dt><dd data-car="body">Coupe</dd><dt>Fuel</dt><dd data-car="fuel">Petrol</dd><dt>Drive</dt><dd data-car="drive">Rear wheel drive</dd><dt>Derivative</dt><dd data-car="der">–</dd></dl>
+              </div>
+              <div class="tab-panel" id="spec-perf">
+                <dl class="kv"><dt>Top speed</dt><dd data-car="speed">202mph</dd><dt>0–62mph</dt><dd>[From feed]</dd><dt>Power</dt><dd>[From feed]</dd></dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="wf-note" data-note="5"><span class="wf-note-label">Editor</span>The description is written in house for each car: what it is, how it's specified and why it's worth seeing. The options list comes from the feed where it exists. Today's descriptions are generic; three sentences about this car would do more than a paragraph about features every car of its age has.</p>
+      </section>
+
+      <!-- Video walkaround (R23) -->
+      <section aria-labelledby="video-title">
+        <h2 id="video-title" class="section-title">Walkaround</h2>
+        <div class="split">
+          <div class="wf-placeholder ratio-16-9">Video walkaround · 60 to 90 seconds</div>
+          <div class="stack">
+            <p>Can't get to Marylebone? We'll walk you round the car on a video call, start it up and show you anything you'd like a closer look at.</p>
+            <button type="button" class="btn btn-secondary" id="video-request">Request a video call viewing</button>
+            <p class="small muted">Delivery to your door is available in the UK, Europe and worldwide. <a href="../pages/services.html#delivery">Delivery and transport</a></p>
+          </div>
+        </div>
+        <p class="wf-note query" data-note="6"><span class="wf-note-label">Open question</span>The team includes a photographer and Mayfair Prestige has a YouTube channel. Could walkarounds be filmed for headline cars, say everything over £150,000?</p>
+      </section>
+
+      <!-- More like this (R27) -->
+      <section aria-labelledby="sim-title">
+        <div class="section-head"><h2 id="sim-title">More like this</h2><a id="similar-all" href="../pages/inventory.html">See all of this make</a></div>
+        <div class="car-grid" id="similar"></div>
+      </section>
+
+      <!-- Search appearance (R28) -->
+      <section aria-labelledby="serp-heading" class="wf-note" data-note="7">
+        <span class="wf-note-label" id="serp-heading">How this page would appear in search</span>
+        Each car gets its own title, description and canonical address, a share image of the car and Car structured data with price, mileage and availability. Today all 40 share "Vehicle Detail | Mayfair Prestige".
+        <div class="serp"><div class="u" id="serp-url"></div><div class="t" id="serp-title"></div><p id="serp-desc"></p></div>
+      </section>
+    </div>
+
+    <!-- Mobile sticky price bar (R20) -->
+    <div class="sticky-buy"><div><b data-car="price">£519,950</b><div class="small muted" data-car="miles">6,500 miles</div></div><a class="btn" data-go="viewing" href="../pages/viewing.html">Book a viewing</a></div>
+
+    <!-- Full-screen gallery (R22) -->
+    <div class="wf-modal fullscreen" id="fullscreen" role="dialog" aria-modal="true" aria-label="Photos">
+      <div class="wf-modal-panel">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <div class="row between" style="margin-bottom:0.75rem"><b data-car="name">Car</b></div>
+        <div class="wf-placeholder" id="fs-main" data-photo-n="0">Photo</div>
+        <div class="row between" style="margin-top:0.75rem"><button type="button" class="btn btn-secondary" data-g-step="-1">‹ Previous</button><button type="button" class="btn btn-secondary" data-g-step="1">Next ›</button></div>
+      </div>
+    </div>
+
+    <!-- Share (R26) -->
+    <div class="wf-modal" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-title">
+      <div class="wf-modal-panel">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <h2 id="share-title">Share this car</h2>
+        <div class="share-row" style="margin-bottom:1rem"><a class="btn" id="share-wa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-secondary" id="share-email" href="mailto:">Email</a></div>
+        <label for="share-link">Link</label>
+        <div class="copy-field"><input type="text" id="share-link" readonly><button type="button" class="btn btn-secondary" id="share-copy">Copy</button></div>
+        <p class="small muted" style="margin-top:0.75rem">Shared links show the car's lead photo, title and price.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Mayfair Prestige's own footer, R03) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>
