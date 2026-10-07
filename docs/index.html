@@ -13,14 +13,16 @@
   <!-- Prototype navigator (replaces Mayfair Prestige's own header, navigation and breadcrumbs, R01) -->
   <header class="sticky site-header proto-nav">
     <div class="container proto-nav-row">
-      <a class="proto-home" href="./index.html" aria-label="Mayfair Prestige prototypes, overview">mayfairprestige <span>prototypes</span></a>
+      <a class="proto-home" href="./index.html" aria-label="Mayfair Prestige prototypes, overview">mayfair<b>prestige</b> <span>prototypes</span></a>
       <nav aria-label="Prototypes">
         <ul class="proto-links">
           <li><a href="./index.html" data-proto="index">Overview</a></li>
-          <li><a href="./pages/home.html" data-proto="home inventory"><span class="n">1</span> Showroom</a></li>
+          <li><a href="./pages/home.html" data-proto="home"><span class="n">1</span> Showroom</a></li>
+          <li class="sub"><a href="./pages/inventory.html" data-proto="inventory">Inventory</a></li>
           <li><a href="./pages/car.html" data-proto="car"><span class="n">2</span> Car page</a></li>
           <li><a href="./pages/viewing.html" data-proto="viewing reserve contact"><span class="n">3</span> Viewing</a></li>
-          <li><a href="./pages/by-invitation.html" data-proto="by-invitation sold"><span class="n">4</span> By invitation</a></li>
+          <li><a href="./pages/by-invitation.html" data-proto="by-invitation"><span class="n">4</span> By invitation</a></li>
+          <li class="sub"><a href="./pages/sold.html" data-proto="sold">Sold</a></li>
           <li><a href="./pages/services.html" data-proto="services finance"><span class="n">5</span> Services</a></li>
         </ul>
       </nav>
@@ -37,15 +39,15 @@
   <div class="hub-hero">
     <div class="container">
       <div class="hub-brand">
-        <span class="wf-placeholder logo">Mayfair Prestige logo</span>
+        <span class="hub-logo">mayfair<b>prestige</b></span>
         <span class="hub-by">Prepared by ClerksWell</span>
       </div>
-      <h1>Five ideas for mayfairprestigeuk.co.uk</h1>
+      <h1>Five ideas for the Mayfair Prestige website</h1>
       <p class="lead">Clickable prototypes of five improvements to the Mayfair Prestige website. They use the <span data-count="cars">40</span> cars in stock on 7 October 2026, and they work: filters, saving, booking and the calculators all respond as they would on the live site.</p>
       <div class="wf-hub-meta">
-        <span>Version 1</span>
+        <span>Version 2</span>
         <span>7 October 2026</span>
-        <span>Greyscale prototypes</span>
+        <span>Designed prototypes</span>
         <span>Sample data where marked</span>
       </div>
     </div>
@@ -116,7 +118,7 @@
         <div>
           <h2 class="hub-h2" id="review-title">How to review</h2>
           <ul>
-            <li>These are greyscale on purpose. The question at this stage is whether the structure and the behaviour are right, not how they look. The designed version comes next and will use Mayfair Prestige's own fonts, colours and photography.</li>
+            <li>These are designed to sit with the current Mayfair Prestige site: its typeface, its black, bone and white palette, square corners and the cars' own photography, loaded from mayfairprestigeuk.co.uk.</li>
             <li>Everything interactive works: filters, sorting, saving, comparing, the gallery, booking steps, forms and calculators. Links to pages outside these five go nowhere by design.</li>
             <li>Use the bar at the top to move between prototypes. Switch <strong>Notes on</strong> (top right) to see what each prototype proposes and why, with notes on behaviour (yellow) and open questions for Mayfair Prestige (red). Notes start switched off.</li>
             <li>Stock, prices, mileages and derivatives are from the live site. Colours, owners, statuses and service details are sample data and say so. Finance figures use an illustrative rate and are not quotes.</li>
@@ -142,11 +144,12 @@
   <footer class="proto-footer">
     <div class="container">
       <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
-      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data</p>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Stock, prices and mileages from mayfairprestigeuk.co.uk on 7 October 2026; colours, owners and statuses are sample data · Photography © Mayfair Prestige</p>
     </div>
   </footer>
 
   <script src="./js/data.js"></script>
   <script src="./js/wireframe.js"></script>
+  <script src="./js/photos.js"></script>
 </body>
 </html>

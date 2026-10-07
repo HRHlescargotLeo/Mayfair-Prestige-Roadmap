@@ -3,7 +3,8 @@
 Clickable prototypes of five improvements to [mayfairprestigeuk.co.uk](https://www.mayfairprestigeuk.co.uk/), prepared by ClerksWell.
 
 - **Live:** https://hrhlescargotleo.github.io/Mayfair-Prestige-Roadmap/
-- **Phase:** 2 of 3 – greyscale prototypes (version 1, 7 October 2026). Phase 3 adds the Mayfair Prestige design in `src/css/theme.css` only.
+- **Phase:** 3 of 3 – designed prototypes (version 2, 7 October 2026). The design lives entirely in `src/css/theme.css`; empty that file and the pack returns to the greyscale version 1.
+- **Photography:** `src/js/photos.js` loads Mayfair Prestige's own photos from mayfairprestigeuk.co.uk and applies each one only once it has loaded; anywhere they can't be reached, a drawn placeholder stays. Photography © Mayfair Prestige.
 
 ## The prototypes
 

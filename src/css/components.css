@@ -424,3 +424,6 @@ header.proto-nav { top: env(safe-area-inset-top, 0px); }
 .h4 { font-size: 1.125rem; }
 h1, h2, h3 { overflow-wrap: break-word; }
 @media (max-width: 900px) { .results-bar .shortlist-btn { display: none; } }
+/* Inventory and Sold sit in the navigator as part of their prototypes */
+.proto-links .sub a { color: var(--wf-text-muted); padding-left: 0.25rem; font-size: 0.875rem; }
+.proto-links .sub a::before { content: "·"; margin-right: 0.35rem; }

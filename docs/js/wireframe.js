@@ -311,7 +311,7 @@
 
   /* --- Car card markup (R16, R17, R18) ------------------------------------ */
   function photo(c, kind) {
-    if (!c.photos) return '<div class="wf-placeholder" data-photo="' + c.id + '" data-photo-n="0">Photography in progress</div>';
+    if (!c.photos) return '<div class="wf-placeholder no-photo" data-photo="' + c.id + '" data-photo-n="0">Photography in progress</div>';
     var label = kind === 'mini' ? 'Photo' : 'Photo · ' + esc(c.make) + ' front three-quarter';
     return '<div class="wf-placeholder" data-photo="' + c.id + '" data-photo-n="0">' + label + '</div>';
   }
@@ -633,9 +633,12 @@
     return 'This ' + carName(c) + ' is finished in ' + c.colour + ' with ' + c.interior.toLowerCase() + ', and has covered ' + num(c.miles) + ' miles. ' +
       '[Two or three sentences written in house about this particular car: its specification, its history and what makes it worth seeing. Sample text.]';
   }
-  function photoGroups(n) {
-    var ext = Math.round(n * 0.45), int = Math.round(n * 0.35);
-    return [['Exterior', 0, ext], ['Interior', ext, ext + int], ['Details', ext + int, n]];
+  /* Photo groups come from the names the photographer already gives each
+     shot (001-front-right, 025-interior-front, 040-wheel). */
+  function photoGroup(name) {
+    if (/interior|seat|steering|controls|infotainment|instruments|glove|keys|documentation/.test(name)) return 'Interior';
+    if (/front|rear|side/.test(name) && !/lights/.test(name)) return 'Exterior';
+    return 'Details';
   }
   function initCar() {
     var app = $('#car-app');
@@ -680,34 +683,41 @@
     /* Gallery (R22) */
     var n = c.photos || 1;
     var cur = 0;
-    var groups = photoGroups(n);
-    function groupOf(i) { for (var g = 0; g < groups.length; g++) { if (i >= groups[g][1] && i < groups[g][2]) return groups[g][0]; } return 'Exterior'; }
+    var GROUPS = ['Exterior', 'Interior', 'Details'];
+    var of = (c.img || []).map(photoGroup);
+    var members = {};
+    GROUPS.forEach(function (g) { members[g] = []; });
+    of.forEach(function (g, i) { members[g].push(i); });
+    function groupOf(i) { return of[i] || 'Exterior'; }
     function show(i) {
       cur = (i + n) % n;
       var label = c.photos ? 'Photo ' + (cur + 1) + ' of ' + n + ' · ' + groupOf(cur).toLowerCase() : 'Photography in progress';
-      $('#g-main').textContent = label;
-      $('#g-main').setAttribute('data-photo-n', cur);
-      $('#fs-main').textContent = label;
-      $('#fs-main').setAttribute('data-photo-n', cur);
+      ['#g-main', '#fs-main'].forEach(function (s) { var el = $(s); el.textContent = label; el.setAttribute('data-photo-n', cur); });
       $('#g-count').textContent = c.photos ? (cur + 1) + ' / ' + n : '0 photos';
+      if (c.photos && !$('.thumb[data-i="' + cur + '"]')) thumbs(groupOf(cur));
       $all('.thumb').forEach(function (t) { t.setAttribute('aria-current', +t.getAttribute('data-i') === cur ? 'true' : 'false'); });
       $all('#g-groups .chip').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-g') === groupOf(cur) ? 'true' : 'false'); });
       if (window.MP_PHOTOS) window.MP_PHOTOS.apply();
     }
     function thumbs(group) {
-      var g = groups.filter(function (x) { return x[0] === group; })[0] || groups[0];
-      var out = '';
-      for (var i = g[1]; i < Math.min(g[2], g[1] + 8); i++) out += '<button type="button" class="thumb" data-i="' + i + '" data-photo="' + c.id + '" data-photo-n="' + i + '" aria-label="Photo ' + (i + 1) + '">' + (i + 1) + '</button>';
-      $('#thumbs').innerHTML = out;
+      $('#thumbs').innerHTML = (members[group] || []).slice(0, 16).map(function (i) {
+        return '<button type="button" class="thumb" data-i="' + i + '" data-photo="' + c.id + '" data-photo-n="' + i + '" aria-label="Photo ' + (i + 1) + '">' + (i + 1) + '</button>';
+      }).join('');
     }
-    $('#g-groups').innerHTML = c.photos ? groups.map(function (g) { return '<button type="button" class="chip" data-g="' + g[0] + '" aria-pressed="false">' + g[0] + ' <span class="ct">' + (g[2] - g[1]) + '</span></button>'; }).join('') : '';
-    $('#g-groups').addEventListener('click', function (e) { var b = e.target.closest('[data-g]'); if (!b) return; thumbs(b.getAttribute('data-g')); var g = groups.filter(function (x) { return x[0] === b.getAttribute('data-g'); })[0]; show(g[1]); });
+    $('#g-groups').innerHTML = c.photos ? GROUPS.filter(function (g) { return members[g].length; }).map(function (g) { return '<button type="button" class="chip" data-g="' + g + '" aria-pressed="false">' + g + ' <span class="ct">' + members[g].length + '</span></button>'; }).join('') : '';
+    $('#g-groups').addEventListener('click', function (e) { var b = e.target.closest('[data-g]'); if (!b) return; var g = b.getAttribute('data-g'); thumbs(g); show(members[g][0]); });
     $('#thumbs').addEventListener('click', function (e) { var t = e.target.closest('.thumb'); if (t) show(+t.getAttribute('data-i')); });
     $all('[data-g-step]').forEach(function (b) { b.addEventListener('click', function () { show(cur + (+b.getAttribute('data-g-step'))); }); });
     document.addEventListener('keydown', function (e) {
       if (!$('#fullscreen').classList.contains('open')) return;
       if (e.key === 'ArrowRight') show(cur + 1);
       if (e.key === 'ArrowLeft') show(cur - 1);
+    });
+    /* Swipe on phones */
+    var x0 = null;
+    ['#g-main', '#fs-main'].forEach(function (s) {
+      $(s).addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      $(s).addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
     });
     $('#g-main').setAttribute('data-photo', c.id);
     $('#fs-main').setAttribute('data-photo', c.id);

@@ -1,18 +1,453 @@
 /* ==========================================================================
-   theme.css — the design layer, deliberately empty at wireframe stage.
+   theme.css — the Mayfair Prestige design layer (phase 3)
 
-   Loaded last, after base.css and components.css. Nothing here during the
-   structure phase. When the project moves to design, brand colour, typography
-   and imagery treatment go in this file ONLY — so the design layer can be
-   applied, reviewed and reverted without touching a single page file or any
-   structural CSS.
+   Everything visual lives here. Delete this file (or empty it) and the pack
+   returns to the greyscale prototypes, with no page or structural CSS touched.
 
-   When you do fill it in, prefer overriding the custom properties in :root
-   over rewriting component rules:
-
-     :root {
-       --wf-action: #e8590c;
-       --wf-text:   #1a1a1a;
-     }
-
+   Values come from the phase 1 design system, measured from
+   mayfairprestigeuk.co.uk: charcoal #0e0f11, black, white, bone #f3f2ef,
+   bone light #edebe9, soft graphite #16181c, Montserrat in spaced capitals,
+   square corners, 1px borders, 52px controls and an arrow after button labels.
    ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --mp-charcoal: #0e0f11;
+  --mp-black: #000000;
+  --mp-white: #ffffff;
+  --mp-bone: #f3f2ef;
+  --mp-bone-l: #edebe9;
+  --mp-graphite: #16181c;
+  --mp-shadow: #1c1e1f;
+  --mp-stone: #9a9a9a;
+  --mp-grey: #6b6b6b;
+  --mp-line: rgba(0, 0, 0, 0.1);
+  --mp-line-d: rgba(255, 255, 255, 0.18);
+  --mp-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+  /* Re-point the wireframe tokens at the brand */
+  --wf-page: var(--mp-white);
+  --wf-surface: var(--mp-bone);
+  --wf-placeholder: var(--mp-graphite);
+  --wf-border: var(--mp-line);
+  --wf-border-strong: var(--mp-charcoal);
+  --wf-text: var(--mp-charcoal);
+  --wf-text-muted: var(--mp-grey);
+  --wf-action: var(--mp-charcoal);
+  --wf-action-hover: var(--mp-black);
+  --wf-radius: 0;
+  --wf-max-width: 1280px;
+
+  /* Notes stay visibly ClerksWell's, toned to sit beside the brand */
+  --wf-note-bg: #f7f1de;
+  --wf-note-border: #a07d1c;
+  --wf-note-query-bg: #f8e9e6;
+  --wf-note-query-border: #a3362a;
+}
+
+/* Type -------------------------------------------------------------------- */
+body { font-family: var(--mp-font); color: var(--mp-charcoal); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2 { font-weight: 400; text-transform: uppercase; }
+h1 { font-size: clamp(1.75rem, 3.6vw, 2.75rem); letter-spacing: 0.14em; line-height: 1.2; }
+h2 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); letter-spacing: 0.12em; line-height: 1.3; }
+h3 { font-weight: 600; letter-spacing: 0.01em; }
+h4, .h4 { font-weight: 600; text-transform: none; letter-spacing: 0; }
+a { color: var(--mp-charcoal); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--mp-black); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--mp-charcoal); outline-offset: 3px; }
+.eyebrow, .proposal-eyebrow { letter-spacing: 0.24em; font-weight: 500; }
+.lead { font-size: 1.125rem; font-weight: 500; }
+.section-title { border-bottom: 1px solid var(--mp-charcoal); padding-bottom: 0.875rem; margin-bottom: 1.75rem; }
+.wf-meta, small { color: var(--mp-grey); }
+
+/* Buttons: square, 1px border, arrow after the label --------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 52px; padding: 0.875rem 1.5rem; border-radius: 0;
+  background: var(--mp-charcoal); border: 1px solid var(--mp-charcoal); color: var(--mp-white);
+  font: 500 1rem/1.4 var(--mp-font); text-decoration: none; letter-spacing: 0.01em;
+  transition: background 0.15s, color 0.15s;
+}
+.btn::after { content: "\2192"; transition: transform 0.15s; }
+.btn:hover { background: var(--mp-black); border-color: var(--mp-black); color: var(--mp-white); text-decoration: none; }
+.btn:hover::after { transform: translateX(3px); }
+.btn-secondary { background: var(--mp-white); color: var(--mp-black); border-color: var(--mp-black); }
+.btn-secondary:hover { background: var(--mp-charcoal); color: var(--mp-white); }
+.btn-sm { min-height: 40px; padding: 0.5rem 1rem; font-size: 0.875rem; }
+.btn[disabled], .btn[disabled]:hover { background: var(--mp-bone-l); border-color: var(--mp-bone-l); color: var(--mp-grey); opacity: 1; }
+.btn[disabled]::after { display: none; }
+.btn-link { color: var(--mp-charcoal); font-weight: 500; }
+.car-actions .btn::after, .compare-tray .btn::after, .save-btn::after, .seg button::after { display: none; }
+
+/* Forms -------------------------------------------------------------------- */
+label, legend { font-weight: 500; font-size: 0.875rem; }
+input[type="text"], input[type="email"], input[type="search"], input[type="tel"], input[type="number"], input[type="date"], select, textarea {
+  min-height: 52px; padding: 0.875rem 1rem; border: 1px solid var(--mp-charcoal); border-radius: 0;
+  background-color: var(--mp-bone); color: var(--mp-charcoal); font: 400 0.9375rem/1.4 var(--mp-font);
+}
+textarea { min-height: 0; }
+select {
+  appearance: none; -webkit-appearance: none; padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%230e0f11' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--mp-charcoal); outline-offset: 2px; background-color: var(--mp-white); }
+input[type="checkbox"], input[type="range"] { accent-color: var(--mp-charcoal); }
+.field.has-error input, .field.has-error select, .field.has-error textarea { border-color: var(--wf-note-query-border); border-width: 2px; }
+.req { color: var(--mp-grey); }
+
+/* Chips, badges, segmented controls ---------------------------------------- */
+.chip { border-radius: 0; border-color: var(--mp-charcoal); font-weight: 500; padding: 0.55rem 0.9rem; min-height: 40px; }
+.chip:hover { background: var(--mp-bone); }
+.chip[aria-pressed="true"] { background: var(--mp-charcoal); border-color: var(--mp-charcoal); color: var(--mp-white); box-shadow: none; }
+.chip[aria-pressed="true"] .ct { color: var(--mp-stone); }
+.chip .ct { color: var(--mp-grey); font-variant-numeric: tabular-nums; }
+.badge { border-radius: 0; letter-spacing: 0.14em; font-weight: 600; padding: 0.3rem 0.6rem; border-color: var(--mp-charcoal); }
+.badge.solid { background: var(--mp-charcoal); color: var(--mp-bone); }
+.seg { border-radius: 0; border-color: var(--mp-charcoal); }
+.seg button { padding: 0.75rem 1.1rem; border-right-color: var(--mp-charcoal); font-weight: 500; }
+.seg button[aria-pressed="true"] { background: var(--mp-charcoal); color: var(--mp-white); }
+
+/* Panels, cards, modals ---------------------------------------------------- */
+.panel, .card { border-radius: 0; border-color: var(--mp-line); }
+.panel.surface { background: var(--mp-bone); border-color: var(--mp-bone); }
+a.card { text-decoration: none; color: var(--mp-charcoal); transition: border-color 0.15s; }
+a.card:hover { border-color: var(--mp-charcoal); }
+.card-title { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9375rem; }
+.wf-modal { background: rgba(14, 15, 17, 0.72); }
+.wf-modal-panel { border-radius: 0; }
+.toast { background: var(--mp-charcoal); color: var(--mp-bone); border-radius: 0; letter-spacing: 0.02em; }
+.accordion { border-radius: 0; border-color: var(--mp-charcoal); }
+.accordion-item + .accordion-item { border-top-color: var(--mp-line); }
+.accordion-title { background: var(--mp-white); font-weight: 600; padding: 1.15rem 1.25rem; }
+.accordion-item.open .accordion-title { background: var(--mp-bone); }
+.tabs { border-bottom-color: var(--mp-charcoal); gap: 0; }
+.tab { border-radius: 0; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8125rem; font-weight: 500; padding: 0.9rem 1.25rem; color: var(--mp-grey); }
+.tab.active { background: var(--mp-charcoal); color: var(--mp-white); border-color: var(--mp-charcoal); font-weight: 500; margin-bottom: 0; }
+.pagination button { border-radius: 0; border-color: var(--mp-charcoal); color: var(--mp-charcoal); min-width: 2.75rem; min-height: 2.75rem; font-weight: 500; }
+.pagination button[aria-current="page"] { background: var(--mp-charcoal); color: var(--mp-white); border-color: var(--mp-charcoal); }
+
+/* Illustrated placeholders: brand graphite with a drawn car, replaced by
+   Mayfair Prestige's own photography when photos.js can load it. */
+.wf-placeholder {
+  border: 0; border-radius: 0; color: var(--mp-stone); letter-spacing: 0.2em; font-size: 0.6875rem; font-weight: 500;
+  background-color: var(--mp-graphite);
+  background-image:
+    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 70' fill='none' stroke='%23ffffff' stroke-opacity='0.14' stroke-width='1.2'%3E%3Cpath d='M8 52h18m40 0h70m40 0h16M22 52c0-9 7-14 14-14s14 5 14 14m86 0c0-9 7-14 14-14s14 5 14 14M8 52v-8l18-6 34-14c18-6 46-6 66 2l26 12 30 4 10 8v2'/%3E%3C/svg%3E"),
+    radial-gradient(120% 90% at 30% 20%, #2a2c31 0%, var(--mp-graphite) 55%, #0b0c0e 100%);
+  background-repeat: no-repeat; background-position: center 42%, center; background-size: min(62%, 420px) auto, cover;
+  align-items: flex-end; padding: 1rem;
+}
+.wf-placeholder.has-photo { background-size: cover; background-position: center; color: transparent; }
+.wf-placeholder.has-photo > * { color: initial; }
+.wf-placeholder.logo { background-image: none; background-color: transparent; color: var(--mp-bone); align-items: center; }
+.person .wf-placeholder, .wf-placeholder.ratio-1-1 {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1.5'%3E%3Ccircle cx='50' cy='38' r='16'/%3E%3Cpath d='M20 90c4-18 16-26 30-26s26 8 30 26'/%3E%3C/svg%3E"), linear-gradient(160deg, #26282c, var(--mp-graphite));
+  background-size: 60% auto, cover;
+}
+
+/* ==========================================================================
+   Prototype navigator, notes switch, proposal panel and pager
+   Styled after the live site's header and footer.
+   ========================================================================== */
+.proto-nav { border-bottom: 1px solid var(--mp-line); background: var(--mp-white); }
+.proto-nav-row { min-height: 74px; gap: 1.5rem; }
+.proto-home { font: 400 1.375rem/1 var(--mp-font); letter-spacing: -0.01em; text-decoration: none; color: var(--mp-charcoal); }
+.proto-home b { font-weight: 600; }
+.proto-home span { display: block; font-size: 0.5625rem; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--mp-grey); margin-top: 0.35rem; }
+.proto-home:hover { text-decoration: none; }
+.proto-links { gap: 0; justify-content: flex-end; }
+.proto-links a { font: 500 0.75rem/1 var(--mp-font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--mp-charcoal); text-decoration: none; padding: 1.75rem 0.6rem; border-bottom: 2px solid transparent; gap: 0.4rem; }
+.proto-links a:hover { color: var(--mp-black); border-bottom-color: var(--mp-stone); }
+.proto-links a[aria-current="page"] { border-bottom-color: var(--mp-charcoal); font-weight: 600; }
+.proto-links .n { border-radius: 0; width: 1.25rem; height: 1.25rem; font-size: 0.6875rem; letter-spacing: 0; border-color: var(--mp-charcoal); }
+.proto-links a[aria-current="page"] .n { background: var(--mp-charcoal); color: var(--mp-white); }
+.proto-links .sub a { color: var(--mp-grey); font-size: 0.6875rem; padding-left: 0.2rem; }
+.proto-links .sub a::before { content: "/"; color: var(--mp-stone); margin-right: 0.4rem; }
+.proto-links .sub a[aria-current="page"] { color: var(--mp-charcoal); }
+.notes-toggle { border-radius: 0; border-color: var(--mp-charcoal); font: 500 0.6875rem/1 var(--mp-font); letter-spacing: 0.14em; text-transform: uppercase; padding: 0.65rem 0.8rem; }
+.notes-track { background: var(--mp-stone); border-radius: 0; }
+.notes-thumb { border-radius: 0; }
+.notes-toggle[aria-checked="true"] .notes-track { background: var(--mp-charcoal); }
+@media (max-width: 1280px) {
+  .proto-nav-row { min-height: 0; padding-top: 0.75rem; }
+  .proto-links { justify-content: flex-start; }
+  .proto-links a { padding: 1rem 0.6rem; }
+}
+
+.proposal { border-bottom-color: var(--wf-note-border); }
+.proposal h2 { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 1.0625rem; }
+.proposal a { color: inherit; }
+
+.proto-footer { background: var(--mp-charcoal); color: var(--mp-bone-l); border-top: 0; padding: 2.5rem 0 2rem; }
+.proto-pager a { background: transparent; border: 1px solid var(--mp-line-d); color: var(--mp-bone); text-decoration: none; border-radius: 0; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 500; font-size: 0.8125rem; padding: 1rem 1.25rem; }
+.proto-pager a .wf-meta { color: var(--mp-stone); letter-spacing: 0.2em; font-size: 0.625rem; }
+.proto-pager a:hover { border-color: var(--mp-bone); }
+.proto-footer .wf-meta { color: var(--mp-stone); font-size: 0.75rem; letter-spacing: 0.02em; }
+.proto-footer a:focus-visible { outline-color: var(--mp-bone); }
+
+/* Page heads: the black band the live site uses on car pages --------------- */
+.page-head { background: var(--mp-black); color: var(--mp-bone); border: 0; padding: 2.75rem 2rem; margin-bottom: 2rem; }
+.page-head p { color: var(--mp-bone-l); }
+.page-head .eyebrow { color: var(--mp-stone); }
+.page-head a { color: var(--mp-bone); }
+
+/* ==========================================================================
+   Prototype 1 — the showroom online
+   ========================================================================== */
+.hero-ph { max-height: 540px; aspect-ratio: 1600 / 540; }
+.search-band { background: var(--mp-black); color: var(--mp-bone); border: 0; padding: 2.5rem 0 2.75rem; }
+.search-band h1 { color: var(--mp-bone); font-size: clamp(1.25rem, 2.4vw, 1.875rem); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+.search-band label { color: var(--mp-bone); }
+.search-row { gap: 1rem; }
+.search-row .btn { background: var(--mp-charcoal); border-color: var(--mp-bone-l); height: 52px; }
+.search-band .wf-note { color: var(--mp-charcoal); }
+
+.car-grid { gap: 1.75rem; }
+.car-card { border-radius: 0; border-color: var(--mp-line); padding: 1.25rem; transition: border-color 0.15s; }
+.car-card:hover { border-color: var(--mp-charcoal); }
+.car-media .wf-placeholder { border-radius: 0; border: 0; }
+.car-media .price-tag { background: var(--mp-graphite); color: var(--mp-white); border: 0; font: 600 1.125rem/1.5 var(--mp-font); padding: 0.25rem 0.6rem; }
+.car-media .status { left: 0; top: 0; }
+.car-media .count { background: rgba(14, 15, 17, 0.72); color: var(--mp-bone); border: 0; border-radius: 0; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.5rem; }
+.save-btn { border-radius: 0; border: 1px solid var(--mp-white); background: rgba(255, 255, 255, 0.92); font: 500 0.75rem/1 var(--mp-font); letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.7rem; color: var(--mp-charcoal); }
+.save-btn::before { content: "\2661"; margin-right: 0.35rem; font-size: 0.875rem; }
+.save-btn[aria-pressed="true"] { background: var(--mp-charcoal); color: var(--mp-white); border-color: var(--mp-charcoal); }
+.save-btn[aria-pressed="true"]::before { content: "\2665"; }
+.car-body { padding: 1rem 0 0; }
+.car-body h3 { font-size: 1.0625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.35; }
+.car-body h3 a { text-decoration: none; color: var(--mp-charcoal); }
+.car-body h3 a:hover { text-decoration: underline; }
+.car-der { font-size: 0.8125rem; }
+.car-specs { border-top-color: var(--mp-line); border-bottom: 1px solid var(--mp-line); padding: 0.75rem 0; margin-top: 0.75rem; }
+.car-specs dt { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.car-specs dd { font-size: 0.8125rem; }
+.compare-tick { padding: 0.75rem 0 0; font-size: 0.8125rem; }
+.car-actions { padding: 0.75rem 0 0; gap: 0.625rem; }
+.car-actions .btn { min-height: 48px; font-size: 0.875rem; padding: 0.6rem; }
+
+.featured { border: 0; background: var(--mp-charcoal); color: var(--mp-bone); padding: 0; gap: 0; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+.featured > .wf-placeholder { aspect-ratio: 16 / 10; }
+.featured .stack { padding: 2rem 2.25rem; }
+.featured h3 { color: var(--mp-white); font-weight: 400; font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.35; }
+.featured .eyebrow, .featured .muted { color: var(--mp-stone); }
+.featured .btn { background: var(--mp-white); color: var(--mp-charcoal); border-color: var(--mp-white); }
+.featured .btn-secondary { background: transparent; color: var(--mp-bone); border-color: var(--mp-bone-l); }
+.featured .btn:hover { background: var(--mp-bone); color: var(--mp-charcoal); }
+
+.collection { position: relative; border: 0; padding: 0; overflow: hidden; text-decoration: none; background: var(--mp-graphite); }
+.collection .wf-placeholder { aspect-ratio: 3 / 4; margin: 0; color: transparent; transition: transform 0.4s ease; }
+.collection::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.75) 100%); pointer-events: none; }
+.collection b, .collection span { position: absolute; left: 0; right: 0; z-index: 1; padding: 0 1rem; }
+.collection b { bottom: 2.4rem; color: var(--mp-bone-l); font-weight: 400; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.9375rem; line-height: 1.3; }
+.collection span { bottom: 1rem; color: var(--mp-stone); font-size: 0.75rem; letter-spacing: 0.08em; }
+.collection:hover .wf-placeholder { transform: scale(1.04); }
+
+.rating .score { font-weight: 400; font-size: 3rem; letter-spacing: 0.04em; }
+.stars { letter-spacing: 0.2em; }
+.review { border: 0; border-top: 1px solid var(--mp-charcoal); padding: 1.25rem 0 0; }
+.review p { font-size: 1.0625rem; font-weight: 500; line-height: 1.5; }
+.review footer { letter-spacing: 0.04em; }
+
+.band { background: var(--mp-charcoal); color: var(--mp-bone-l); border: 0; padding: 2.5rem; }
+.band h2 { color: var(--mp-white); }
+.band .eyebrow, .band .muted { color: var(--mp-stone); }
+.band a { color: var(--mp-bone); }
+.band .btn { background: var(--mp-white); color: var(--mp-charcoal); border-color: var(--mp-white); }
+.band .btn:hover { background: var(--mp-bone); }
+.band .btn-secondary { background: transparent; color: var(--mp-bone); border-color: var(--mp-bone-l); }
+.band .btn-secondary:hover { background: var(--mp-white); color: var(--mp-charcoal); }
+.band .hours dt { color: var(--mp-stone); }
+.band .wf-note { color: var(--mp-charcoal); }
+
+/* Inventory */
+.inv-layout { gap: 2rem; grid-template-columns: 280px minmax(0, 1fr); }
+.filters { border-radius: 0; border: 0; background: var(--mp-bone); padding: 1.5rem; }
+.filters label, .filters legend { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; font-weight: 600; }
+.filters select { background-color: var(--mp-white); min-height: 46px; padding: 0.6rem 2.25rem 0.6rem 0.8rem; font-size: 0.875rem; }
+.filter-head h2 { font-size: 0.9375rem; letter-spacing: 0.2em; }
+.results-bar { border-bottom: 1px solid var(--mp-charcoal); padding-bottom: 1rem; }
+.results-bar strong { text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; font-size: 0.875rem; }
+.results-bar select { min-height: 44px; padding: 0.5rem 2.25rem 0.5rem 0.8rem; font-size: 0.875rem; }
+.empty-state { border-radius: 0; border-color: var(--mp-charcoal); background: var(--mp-bone); }
+.filter-mobile { border-bottom-color: var(--mp-line); }
+@media (max-width: 900px) {
+  .filters { background: var(--mp-white); }
+  .inv-layout { grid-template-columns: minmax(0, 1fr); }
+}
+.drawer { border-left-color: var(--mp-charcoal); }
+.drawer-head { background: var(--mp-black); color: var(--mp-bone); }
+.drawer-head h2 { color: var(--mp-bone); font-size: 0.9375rem; letter-spacing: 0.2em; }
+.drawer-head .btn-link { color: var(--mp-bone); }
+.mini-car { border-radius: 0; }
+.compare-tray { background: var(--mp-black); color: var(--mp-bone); border-top: 0; }
+.compare-tray .slot { border-color: var(--mp-line-d); border-radius: 0; color: var(--mp-bone-l); }
+.compare-tray .slot.muted { color: var(--mp-stone); }
+.compare-tray .btn { background: var(--mp-white); color: var(--mp-charcoal); border-color: var(--mp-white); }
+.compare-tray .btn[disabled] { background: var(--mp-shadow); color: var(--mp-stone); border-color: var(--mp-shadow); }
+.compare-tray .btn-link { color: var(--mp-bone); }
+.compare-tray strong { text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; font-size: 0.8125rem; }
+.compare-table thead th { border-bottom: 1px solid var(--mp-charcoal); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.875rem; }
+.compare-table thead th a { text-decoration: none; }
+
+/* ==========================================================================
+   Prototype 2 — the car page
+   ========================================================================== */
+#car-app > .small a { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.75rem; text-decoration: none; }
+.car-title h1 { text-transform: none; letter-spacing: 0.01em; font-weight: 400; font-size: clamp(1.75rem, 3.4vw, 3rem); }
+.car-title p { font-weight: 500; }
+.gallery-main .wf-placeholder { aspect-ratio: 4 / 3; }
+.gallery-main .g-arrow { border-radius: 0; background: var(--mp-black); color: var(--mp-white); border: 0; width: 44px; height: 44px; }
+.gallery-main .g-count { border-radius: 0; background: rgba(14, 15, 17, 0.75); color: var(--mp-bone); border: 0; letter-spacing: 0.1em; font-size: 0.75rem; }
+.gallery-main .g-full { background: rgba(255, 255, 255, 0.92); border-color: var(--mp-white); min-height: 40px; }
+.gallery-main .g-full::after { content: "\2922"; }
+.thumb { border-radius: 0; border: 0; background-color: var(--mp-graphite); background-size: cover; background-position: center; color: var(--mp-stone); }
+.thumb.has-photo { color: transparent; }
+.thumb[aria-current="true"] { outline: 2px solid var(--mp-charcoal); outline-offset: 2px; }
+.facts { border-radius: 0; border: 1px solid var(--mp-line); padding: 1.75rem; gap: 1.25rem; }
+.facts .price { font-weight: 600; font-size: 2.25rem; letter-spacing: 0.01em; }
+.facts .kv dt { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; align-self: center; }
+.facts .kv dd { font-size: 0.9375rem; }
+.facts .kv { border-top: 1px solid var(--mp-line); padding-top: 1rem; }
+.phone-box { border-top-color: var(--mp-line); }
+.sticky-buy { border-top-color: var(--mp-charcoal); }
+.keyinfo li { border-radius: 0; border: 0; background: var(--mp-bone); padding: 1rem 1.25rem; }
+.keyinfo li span { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; }
+.options-list { list-style: none; padding-left: 0; }
+.options-list li { padding-left: 1.25rem; position: relative; }
+.options-list li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--mp-charcoal); }
+.serp { border-radius: 0; }
+.serp .t { color: #1a0dab; }
+.fullscreen .wf-modal-panel { background: var(--mp-black); color: var(--mp-bone); }
+.fullscreen .wf-modal-close { color: var(--mp-bone); }
+.fullscreen .btn-secondary { background: transparent; color: var(--mp-bone); border-color: var(--mp-bone-l); }
+
+/* ==========================================================================
+   Prototype 3 — viewing, reserving and contact
+   ========================================================================== */
+.car-summary { border-radius: 0; border: 0; background: var(--mp-bone); padding: 1rem; }
+.car-summary h2 { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; font-size: 1rem; }
+.stepper li { border-top-width: 2px; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; font-weight: 500; padding-top: 0.75rem; }
+.stepper li[aria-current="step"] { border-top-color: var(--mp-charcoal); font-weight: 700; }
+.stepper li.done { border-top-color: var(--mp-stone); }
+.choice { border-radius: 0; border-color: var(--mp-line); padding: 1.5rem; gap: 0.5rem; transition: border-color 0.15s; }
+.choice:hover { border-color: var(--mp-charcoal); }
+.choice b { text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; font-size: 0.875rem; }
+.choice[aria-pressed="true"] { border-color: var(--mp-charcoal); box-shadow: inset 0 0 0 1px var(--mp-charcoal); background: var(--mp-bone); }
+.day { border-radius: 0; border-color: var(--mp-line); padding: 0.75rem 0.5rem; gap: 0.15rem; }
+.day span { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; color: var(--mp-grey); }
+.day:hover:not([disabled]) { border-color: var(--mp-charcoal); }
+.day[aria-pressed="true"] { background: var(--mp-charcoal); color: var(--mp-white); border-color: var(--mp-charcoal); box-shadow: none; }
+.day[aria-pressed="true"] span, .day[aria-pressed="true"] small { color: var(--mp-stone); }
+.confirm { border-radius: 0; border: 0; background: var(--mp-charcoal); color: var(--mp-bone-l); padding: 2rem; }
+.confirm h2, .confirm h3 { color: var(--mp-white); }
+.confirm .ref { color: var(--mp-white); font-weight: 600; }
+.confirm a { color: var(--mp-bone); }
+.confirm .kv dt { color: var(--mp-stone); }
+.confirm .btn-secondary { background: transparent; color: var(--mp-bone); border-color: var(--mp-bone-l); }
+.confirm .btn-secondary:hover { background: var(--mp-white); color: var(--mp-charcoal); }
+.how-list li::before { border-radius: 0; background: var(--mp-charcoal); color: var(--mp-white); border: 0; font-weight: 500; }
+.contact-top .panel { background: var(--mp-bone); border: 0; padding: 1.5rem; }
+.contact-top .small.muted { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.6875rem; }
+.contact-top .big { font-weight: 500; text-decoration: none; }
+.person b { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.875rem; }
+aside.panel.surface h2.small { letter-spacing: 0.2em; }
+
+/* ==========================================================================
+   Prototype 4 — by invitation and previously sold
+   ========================================================================== */
+.match-count { border-radius: 0; border: 0; background: var(--mp-charcoal); color: var(--mp-bone-l); padding: 1.5rem; }
+.match-count .n { color: var(--mp-white); font-weight: 400; font-size: 3rem; }
+.match-count .small.muted { color: var(--mp-stone); }
+.match-count a { color: var(--mp-bone); }
+.match-count .btn-secondary { background: transparent; color: var(--mp-bone); border-color: var(--mp-bone-l); }
+.sold-card { border-radius: 0; border: 0; background: var(--mp-bone); }
+.sold-card .wf-placeholder { border-radius: 0; }
+.sold-card .badge { left: 0; top: 0; }
+.sold-card h3 { text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.875rem; font-weight: 600; }
+.sold-card .sb { padding: 1rem; }
+.sold-card .btn-sm { background: transparent; }
+.sell-ways .panel h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9375rem; }
+
+/* ==========================================================================
+   Prototype 5 — private services and finance
+   ========================================================================== */
+.inpage { border-bottom-color: var(--mp-charcoal); }
+.inpage a { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; text-decoration: none; color: var(--mp-grey); padding: 0.4rem 0; }
+.inpage a[aria-current="true"] { color: var(--mp-charcoal); text-decoration: none; box-shadow: inset 0 -2px 0 var(--mp-charcoal); }
+.svc { padding-top: 2rem; border-top: 1px solid var(--mp-line); }
+.svc:first-child { border-top: 0; padding-top: 0; }
+.svc h1, .svc > h2 { margin-bottom: 1.25rem; }
+.levels div { border-radius: 0; border: 0; background: var(--mp-bone); }
+.calc-out { border-radius: 0; border: 0; background: var(--mp-charcoal); color: var(--mp-bone-l); padding: 1.5rem; }
+.calc-out .big { color: var(--mp-white); font-weight: 400; font-size: 2.75rem; letter-spacing: 0.02em; }
+.calc-out label, .calc-out .small { color: var(--mp-bone-l); }
+.calc-out .muted { color: var(--mp-stone); }
+.calc-out .kv dt { color: var(--mp-stone); }
+.calc-out .kv dd { color: var(--mp-white); }
+.calc-out input[type="range"] { accent-color: var(--mp-bone); }
+.products .panel { background: var(--mp-bone); border: 0; }
+.products .panel h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9375rem; }
+.range-val { font-weight: 600; }
+
+/* Landing page ------------------------------------------------------------ */
+.hub-hero { background: var(--mp-black); color: var(--mp-bone); border: 0; padding: 4rem 0 3.5rem; }
+.hub-hero h1 { color: var(--mp-bone); max-width: 22ch; font-size: clamp(1.75rem, 4vw, 3rem); letter-spacing: 0.12em; line-height: 1.25; }
+.hub-hero .lead { color: var(--mp-bone-l); font-weight: 400; }
+.hub-by { color: var(--mp-stone); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.6875rem; }
+.hub-logo { font: 400 1.625rem/1 var(--mp-font); letter-spacing: -0.01em; color: var(--mp-bone); }
+.hub-logo b { font-weight: 600; }
+.wf-hub-meta span { border-radius: 0; border-color: var(--mp-line-d); color: var(--mp-bone-l); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.6875rem; padding: 0.4rem 0.7rem; }
+.hub-h2 { text-transform: uppercase; letter-spacing: 0.16em; font-weight: 400; }
+.proto-card { border-radius: 0; border-color: var(--mp-line); grid-template-columns: minmax(0, 360px) minmax(0, 1fr); transition: border-color 0.15s; }
+.proto-card:hover { border-color: var(--mp-charcoal); }
+.proto-thumb .wf-placeholder { min-height: 240px; color: transparent; }
+.proto-num { border-radius: 0; background: var(--mp-charcoal); color: var(--mp-white); border: 0; font-weight: 500; }
+.proto-body { padding: 2rem; }
+.proto-body h3 { text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.125rem; }
+.proto-body h3 a { text-decoration: none; }
+.hub-links li { border-bottom-color: var(--mp-line); }
+@media (max-width: 768px) { .proto-card { grid-template-columns: minmax(0, 1fr); } .proto-thumb .wf-placeholder { min-height: 180px; } }
+
+/* Module library ---------------------------------------------------------- */
+.lib-item { border-top: 1px solid var(--mp-charcoal); }
+.lib-item h2 { font-size: 1rem; letter-spacing: 0.16em; }
+
+/* Video placeholder: a play mark over the car */
+.wf-placeholder.is-video { position: relative; }
+.wf-placeholder.is-video::before { content: ""; position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; transform: translate(-50%, -50%); border: 1px solid rgba(255,255,255,0.8); background: rgba(0,0,0,0.35) url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center / 28px; }
+.wf-placeholder.is-video.has-photo { color: var(--mp-bone); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::after, .collection .wf-placeholder, .car-card, .proto-card { transition: none; }
+  .collection:hover .wf-placeholder { transform: none; }
+}
+@media (max-width: 768px) {
+  .featured { grid-template-columns: minmax(0, 1fr); }
+  .featured .stack { padding: 1.5rem; }
+  .page-head { padding: 2rem 1.25rem; }
+  .band { padding: 1.75rem 1.25rem; }
+}
+
+/* Fixes after review ------------------------------------------------------ */
+.btn { gap: 0; }
+.btn::after { margin-left: 0.5rem; }
+.btn[data-save]::after, .shortlist-btn::after, .btn-sm.shortlist-btn::after { display: none; }
+.proto-nav-row { gap: 1rem; }
+.proto-home { font-size: 1.25rem; }
+.proto-links li { display: flex; }
+.proto-links a { height: 74px; padding: 0 0.45rem; letter-spacing: 0.08em; font-size: 0.6875rem; }
+.proto-links .sub a { font-size: 0.625rem; padding-left: 0; }
+.notes-toggle { padding: 0.6rem 0.7rem; }
+@media (max-width: 1280px) { .proto-links a { height: 52px; padding: 0 0.6rem; } }
+.car-media .wf-placeholder { align-items: flex-start; justify-content: flex-start; padding: 0.9rem 6rem 0.9rem 0.9rem; text-align: left; font-size: 0.625rem; line-height: 1.5; }
+.car-media .wf-placeholder.has-photo { color: transparent; }
+.car-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1rem; }
+.car-specs div { grid-template-columns: auto 1fr; gap: 0.5rem; align-items: baseline; }
+.car-specs dd { overflow-wrap: normal; }
+.car-actions .btn { white-space: nowrap; font-size: 0.8125rem; padding: 0.6rem 0.4rem; }
+.car-media .wf-placeholder:not(.no-photo) { color: transparent; }
+.car-specs div { display: grid; grid-template-columns: 1fr; gap: 0.1rem; }
+.filter-mobile .btn::after { display: none; }
+.car-summary .wf-placeholder:not(.no-photo), .mini-car .wf-placeholder:not(.no-photo), .featured > .wf-placeholder, .thumb { color: transparent; }
