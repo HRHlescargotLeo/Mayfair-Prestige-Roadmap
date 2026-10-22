@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW3 A budget filter that reaches every car – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 3 of 29 · A budget filter that reaches every car</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Replace the single "Max Price" list with five bands that match the stock, each showing how many cars it holds: under £50,000, £50,000 to £100,000, £100,000 to £200,000, £200,000 to £300,000, and £300,000 and over.</p></div>
+          <div><h2>Why</h2><p>Price is a single "Max Price" list of 66 options from £50,000 to £450,000. Five cars cost less than £50,000, from the Fiat 500C at £10,950 to the Mercedes 500 at £39,950, and there's no way to pick them out by budget.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW3, idea 3 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 3</span><h1>A budget filter that reaches every car</h1><p>Price bands that match the stock, including the cars under £50,000.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Pick "Under £50,000", then try the other bands.</p>
+      <div data-qw="budget"><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="field"><label>Max Price</label><select disabled><option>£50,000 (the lowest choice)</option></select></div><p class="small">Cars in stock under £50,000: <b data-under-count>5</b>. None can be picked out by budget.</p><ul class="qw-list" data-under></ul></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div><fieldset class="qw-group"><legend>Budget</legend><div class="chip-set" data-bands></div></fieldset><p class="result-count" aria-live="polite"><strong data-band-count></strong></p><div class="qw-minis" data-band-cars></div></div></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Bands with no cars in them are hidden. The counts come from the stock, so they change as cars arrive and sell.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

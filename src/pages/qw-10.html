@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW10 Key facts beside the photos – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 10 of 29 · Key facts beside the photos</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A panel beside the gallery with the price, mileage, year, colour, interior, gearbox and owners, then the three next steps: book a viewing, reserve, and call or WhatsApp. On a phone, a bar with the price and "Book a viewing" stays at the bottom of the screen.</p></div>
+          <div><h2>Why</h2><p>On the 458 page the price comes after a long general description and a tabbed specification. Mileage isn't in the Car Details panel at all; it's mentioned in the description.</p></div>
+        </div>
+        <p class="proposal-foot">Interior and owners are sample data.</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW10, idea 13 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 10</span><h1>Key facts beside the photos</h1><p>Price, mileage and the three next steps beside the gallery, not under the description.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Compare where the price and mileage appear on each version.</p>
+      <div data-qw="keyfacts"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2014-ferrari-458"></select></div><div class="qw-compare stack"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-site"><h3 data-kf="name"></h3><div class="qw-g" data-kf="photo"></div><div class="qw-text"><p>[General description, several paragraphs]</p></div><div class="tabs qw-faux-tabs"><span>Car Details</span><span>Features</span></div><div class="qw-text"><p>[Specification list, no mileage]</p></div><p class="qw-price-late">Price: <b data-kf="price"></b></p><div class="row"><span class="btn btn-secondary btn-sm">Arrange a Viewing</span><span class="btn btn-secondary btn-sm">Reserve Now</span></div></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-kf"><div><h3 data-kf="name"></h3><p class="muted small" data-kf="der"></p><div class="qw-g" data-kf="photo"></div></div><aside class="facts panel"><p class="price" data-kf="price"></p><dl class="kv" data-kf="facts"></dl><div class="actions"><a class="btn btn-block" data-kf="view" href="viewing.html">Book a viewing</a><a class="btn btn-secondary btn-block" data-kf="reserve" href="reserve.html">Reserve this car</a><div class="two"><a class="btn btn-secondary" data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a><a class="btn btn-secondary" data-kf="wa" href="https://wa.me/447791777777" target="_blank" rel="noopener">WhatsApp</a></div></div></aside></div><div class="qw-stickybar"><div><b data-kf="price"></b><span class="small" data-kf="miles"></span></div><span class="btn btn-sm">Book a viewing</span><span class="small muted">On phones</span></div></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The panel stays in view as the buyer scrolls the photos on a desktop. On phones it sits under the gallery and the price bar takes over.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW14 A contact page with the details on it – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 14 of 29 · A contact page with the details on it</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Put the phone number, WhatsApp, email, address, hours and a map link at the top of Contact us, then offer four routes (buying, selling, finance, storage), each opening a short form that asks only what's needed.</p></div>
+          <div><h2>Why</h2><p>Contact us is a form and nothing else. The address is only in the footer and there's no phone number. The form asks for a "Nature of Enquiry" from 13 options, then make, model and registration as free text.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW14, idea 23 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 14</span><h1>A contact page with the details on it</h1><p>Phone, WhatsApp, email, address and hours at the top, then four short routes.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Choose "Selling a car" and send the short form.</p>
+      <div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-form-today"><div class="field"><label>Name</label><input type="text" disabled></div><div class="field"><label>Email</label><input type="text" disabled></div><div class="field"><label>Nature of Enquiry</label><select disabled><option>Choose one of 13 options</option></select></div><div class="field"><label>Make</label><input type="text" disabled></div><div class="field"><label>Model</label><input type="text" disabled></div><div class="field"><label>Registration</label><input type="text" disabled></div><p class="small muted">No phone number, address, hours or map.</p></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-contact"><div class="panel"><span class="small muted">Call</span><a class="big" data-fact="phone-link" href="tel:+442077232860">020 7723 2860</a></div><div class="panel"><span class="small muted">WhatsApp</span><a class="big" data-fact="wa-link" href="https://wa.me/447791777777">+44 7791 777777</a></div><div class="panel"><span class="small muted">Email</span><a data-fact="email-link" href="mailto:info@mayfairprestigeuk.co.uk">info@mayfairprestigeuk.co.uk</a></div><div class="panel"><span class="small muted">Showroom</span><span data-fact="address">91 Crawford Street</span> <a href="https://www.google.com/maps/search/?api=1&amp;query=91+Crawford+Street+London+W1H+2HD" target="_blank" rel="noopener">Map</a><dl class="hours" data-fact="hours"></dl></div></div><div class="tabs route-tabs" aria-label="Enquiry type"><button type="button" class="tab active" data-tab="qr-buy">Buying</button><button type="button" class="tab" data-tab="qr-sell">Selling</button><button type="button" class="tab" data-tab="qr-fin">Finance</button><button type="button" class="tab" data-tab="qr-st">Storage</button></div><div><div class="tab-panel active" id="qr-buy"><form data-confirm="qr-buy-done" id="qr-buy-form"><div class="form-grid"><div class="field full"><label for="qr-buy-what">Which car? (optional)</label><input type="text" id="qr-buy-what"></div><div class="field"><label for="qr-buy-name">Name <span class="req">*</span></label><input type="text" id="qr-buy-name" autocomplete="name" required data-error="Please tell us your name."></div><div class="field"><label for="qr-buy-reply">Phone or email <span class="req">*</span></label><input type="text" id="qr-buy-reply" required data-error="Please give a phone number or email address."></div></div><button type="submit" class="btn">Send</button></form><div class="confirm" id="qr-buy-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPC">MPC-0000</span>. We'll be in touch [today].</p></div></div><div class="tab-panel" id="qr-sell"><form data-confirm="qr-sell-done" id="qr-sell-form"><div class="form-grid"><div class="field full"><label for="qr-sell-what">Your car and its mileage</label><input type="text" id="qr-sell-what"></div><div class="field"><label for="qr-sell-name">Name <span class="req">*</span></label><input type="text" id="qr-sell-name" autocomplete="name" required data-error="Please tell us your name."></div><div class="field"><label for="qr-sell-reply">Phone or email <span class="req">*</span></label><input type="text" id="qr-sell-reply" required data-error="Please give a phone number or email address."></div></div><button type="submit" class="btn">Send</button></form><div class="confirm" id="qr-sell-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPC">MPC-0000</span>. We'll be in touch [today].</p></div></div><div class="tab-panel" id="qr-fin"><form data-confirm="qr-fin-done" id="qr-fin-form"><div class="form-grid"><div class="field full"><label for="qr-fin-what">Which car, and how you'd like to pay (optional)</label><input type="text" id="qr-fin-what"></div><div class="field"><label for="qr-fin-name">Name <span class="req">*</span></label><input type="text" id="qr-fin-name" autocomplete="name" required data-error="Please tell us your name."></div><div class="field"><label for="qr-fin-reply">Phone or email <span class="req">*</span></label><input type="text" id="qr-fin-reply" required data-error="Please give a phone number or email address."></div></div><button type="submit" class="btn">Send</button></form><div class="confirm" id="qr-fin-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPC">MPC-0000</span>. We'll be in touch [today].</p></div></div><div class="tab-panel" id="qr-st"><form data-confirm="qr-st-done" id="qr-st-form"><div class="form-grid"><div class="field full"><label for="qr-st-what">Your car and when you'd like storage to start</label><input type="text" id="qr-st-what"></div><div class="field"><label for="qr-st-name">Name <span class="req">*</span></label><input type="text" id="qr-st-name" autocomplete="name" required data-error="Please tell us your name."></div><div class="field"><label for="qr-st-reply">Phone or email <span class="req">*</span></label><input type="text" id="qr-st-reply" required data-error="Please give a phone number or email address."></div></div><button type="submit" class="btn">Send</button></form><div class="confirm" id="qr-st-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPC">MPC-0000</span>. We'll be in touch [today].</p></div></div></div></section></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each route sends to the right person, so finance questions reach the finance specialist directly.</p>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Which phone number should the site use: 020 7723 2860 (the site) or (020) 8022 2494 (AutoTrader)?</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

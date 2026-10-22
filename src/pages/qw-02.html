@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW2 Let buyers sort the inventory – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 2 of 29 · Let buyers sort the inventory</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A sort control above the results: price high to low (today's order), price low to high, newest arrivals, lowest mileage and newest year. The choice is remembered as the buyer pages through.</p></div>
+          <div><h2>Why</h2><p>Inventory lists 40 cars, twelve a page, always from most to least expensive, with no way to change the order. A buyer looking for a low-mileage car, or for what came in this week, has to read every page.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW2, idea 2 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 2</span><h1>Let buyers sort the inventory</h1><p>Sort by price either way, newest arrival, lowest mileage or year.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Sort by lowest mileage, then by newest arrival.</p>
+      <div class="qw-compare stack"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><p class="small muted">Always most expensive first. No sort control.</p><ol class="qw-list" data-today-order></ol><p class="small muted">and 34 more, over four pages</p></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div data-qw="sort"><div class="results-bar"><div class="field"><label for="qw-sort">Sort by</label><select id="qw-sort"><option value="price-desc">Price, highest first</option><option value="price-asc">Price, lowest first</option><option value="newest">Newest arrivals</option><option value="miles">Lowest mileage</option><option value="year">Newest year</option></select></div></div><div class="car-grid" data-sorted></div><p class="small muted">Showing 8 of 40</p></div></section></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The sort is remembered for the session, so going back from a car returns to the same order.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

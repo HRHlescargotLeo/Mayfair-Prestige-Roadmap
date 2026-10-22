@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW23 Delivery offered on every car – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 23 of 29 · Delivery offered on every car</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Add one line to every car page, "Delivery to your door, UK and worldwide", opening a short transport quote: the car, where it's going, road, sea or air, and when.</p></div>
+          <div><h2>Why</h2><p>Transport "in the UK and Europe… worldwide… via air, sea, or road" is mentioned only on the Storage page. A buyer outside London looking at a car has no reason to know it's offered.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW23, idea 38 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 23</span><h1>Delivery offered on every car</h1><p>A "Delivery to your door, UK and worldwide" line on car pages, with a quote request.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Ask for a delivery quote for the Cullinan.</p>
+      <div data-qw="delivery"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2020-rolls-royce-cullinan"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-site"><b data-dl="name"></b><p data-dl="price"></p><div class="row"><span class="btn btn-secondary btn-sm">Arrange a Viewing</span><span class="btn btn-secondary btn-sm">Reserve Now</span></div><p class="small muted">No mention of delivery on the car page.</p></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-site"><b data-dl="name"></b><p data-dl="price"></p><p class="qw-deliver"><b>Delivery to your door, UK and worldwide.</b> <a href="#dl-form">Get a delivery quote</a></p><form data-confirm="dl-done" id="dl-form"><div class="form-grid"><div class="field full"><label for="dl-car">Car</label><input type="text" id="dl-car" readonly></div><div class="field"><label for="dl-to">Delivering to <span class="req">*</span></label><input type="text" id="dl-to" placeholder="Town and country" required data-error="Please tell us where the car is going."></div><div class="field"><label for="dl-by">By</label><select id="dl-by"><option>Whatever suits</option><option>Road</option><option>Sea</option><option>Air</option></select></div><div class="field full"><label for="dl-contact">Phone or email <span class="req">*</span></label><input type="text" id="dl-contact" required data-error="Please give a phone number or email address."></div></div><button type="submit" class="btn">Ask for a quote</button></form><div class="confirm" id="dl-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPT">MPT-0000</span>. We'll send a delivery quote for the car.</p></div></div></section></div></div>
+      <p class="wf-note query" data-note="1"><span class="wf-note-label">Open question</span>Is delivery arranged for every car, or only for some destinations?</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

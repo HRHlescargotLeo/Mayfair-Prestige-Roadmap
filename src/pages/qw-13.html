@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW13 More like this – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 13 of 29 · More like this</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Mix two cars of the same marque with two at a similar price and body style from other marques, and link to the full list for that marque.</p></div>
+          <div><h2>Why</h2><p>Similar Stock on the 458 Speciale shows two cars of the same make, a 2012 458 and a 1996 F355. A buyer at that price might just as well be interested in another marque.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW13, idea 20 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 13</span><h1>More like this</h1><p>Similar cars by marque, price and body style, not marque alone.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Switch to the Rolls-Royce Spectre, then the Porsche 911.</p>
+      <div data-qw="similar"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2014-ferrari-458"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><p class="small muted">Similar Stock</p><div class="qw-minis" data-sim-today></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><p class="small muted">More like this</p><div class="qw-minis" data-sim-new></div><p><a href="inventory.html" data-sim-all>See all in stock</a></p></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Same marque first, then the closest price, preferring the same body style. Sold cars are never shown here.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

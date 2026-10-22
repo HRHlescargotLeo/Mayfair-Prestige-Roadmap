@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW4 Fewer, more useful filter options – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 4 of 29 · Fewer, more useful filter options</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Swap the long mileage list for five bands, and add era, body style and gearbox. Each option shows how many cars it would return, and options that would return nothing are hidden.</p></div>
+          <div><h2>Why</h2><p>Max Mileage has 85 options in 1,000-mile steps up to 83,000. There's no filter for year or era, colour or gearbox, though the stock runs from 1960s Mustangs to cars delivered this year.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW4, idea 4 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 4</span><h1>Fewer, more useful filter options</h1><p>Mileage bands, era, body and gearbox, with counts, and no empty options.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Pick "Classic, before 1990", then "Manual", and watch the other counts change.</p>
+      <div data-qw="filters"><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="field"><label for="mile-today">Max Mileage</label><select id="mile-today" data-mile-today></select></div><p class="small muted">In 1,000-mile steps. No year, era or gearbox filter.</p></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div><div data-filter-groups></div><div class="row between"><p class="result-count" aria-live="polite"><strong data-filter-count></strong></p><button type="button" class="btn btn-secondary btn-sm" data-filter-clear>Clear</button></div><div class="qw-minis" data-filter-cars></div></div></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Choosing an option updates every other count, so a buyer never picks a combination with no cars.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

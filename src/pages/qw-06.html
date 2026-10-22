@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW6 Colour and photo count on cards – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 6 of 29 · Colour and photo count on cards</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Replace "Speed" on stock cards with the colour, and show how many photos the car has. Colour is one of the first things a buyer filters on in their head, and a photo count tells them how much there is to see.</p></div>
+          <div><h2>Why</h2><p>Cards show miles, gearbox, year, fuel and top speed. Colour isn't shown anywhere on the card, and top speed is the least useful of the five for this stock: on the classics it reads "-".</p></div>
+        </div>
+        <p class="proposal-foot">Colours are sample data until the stock feed includes them.</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW6, idea 8 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 6</span><h1>Colour and photo count on cards</h1><p>Show the car's colour instead of its top speed, and how many photos there are.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Switch to the 1968 Ford Mustang and compare the two cards.</p>
+      <div data-qw="colour"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="1968-ford-mustang"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-one" data-today-card></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-one" data-new-card></div></section></div></div>
+      <p class="wf-note query" data-note="1"><span class="wf-note-label">Open question</span>Does the stock feed hold the exterior and interior colour? If not, it's a field to add where cars are entered.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

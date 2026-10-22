@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW9 Car structured data – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 9 of 29 · Car structured data</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Add schema.org Car and Offer data to every car page: price, availability, mileage, year, fuel, gearbox and the dealer's address. Search engines can then show price and stock details in results.</p></div>
+          <div><h2>Why</h2><p>We found no structured data on any car page, so search engines have to guess what the page is about.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW9, idea 12 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 9</span><h1>Car structured data</h1><p>Tell search engines the price, mileage and availability of every car.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Change the car and read the data that would sit behind its page.</p>
+      <div data-qw="schema"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2020-rolls-royce-cullinan"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-empty">No structured data on the page</div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><p class="small muted">How a result can look</p><div class="serp" data-rich></div><details class="qw-code"><summary>The data behind it</summary><pre data-jsonld></pre></details></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Generated from the stock feed. Availability changes to "limited" when a car is reserved or under offer. How search engines display it is up to them.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

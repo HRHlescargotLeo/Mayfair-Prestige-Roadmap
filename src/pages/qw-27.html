@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW27 Fix the sitemaps – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 27 of 29 · Fix the sitemaps</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Serve Mayfair Prestige's own sitemap at /sitemap.xml, restore or redirect the 84 Previously Sold addresses, and submit the sitemap in Google Search Console.</p></div>
+          <div><h2>Why</h2><p>The address search engines check first, /sitemap.xml, returns the sitemap for a different website (www.mfpservices.co.uk). The real one, at /xmlsitemap, lists 137 addresses, and 84 of them, every Previously Sold page, return "page not found".</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW27, idea 45 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 27</span><h1>Fix the sitemaps</h1><p>Serve the real sitemap at /sitemap.xml and stop listing 84 pages that no longer exist.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Switch between Today and Proposed and read the status of each address.</p>
+      <div data-qw="sitemap"><div class="seg" data-sm-seg role="group" aria-label="Show"><button type="button" data-mode="today" aria-pressed="true">Today</button><button type="button" data-mode="proposed" aria-pressed="false">Proposed</button></div><p class="small" data-sm-note aria-live="polite"></p><div class="qw-tablewrap"><table class="qw-table"><thead><tr><th>Address</th><th>Page</th><th>Status</th></tr></thead><tbody data-sm-rows></tbody></table></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>A sample of the 137 addresses. The Previously Sold addresses can either point to a proper archive (big improvement 4) or redirect to the Previously Sold page.</p>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Is mfpservices.co.uk a sister business that should be linked, or a leftover from an earlier site?</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW24 One set of facts – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 24 of 29 · One set of facts</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Agree each fact once and store it in one place in Umbraco, so the header, footer, contact page and car pages all show the same thing. Changing the hours then means changing them once.</p></div>
+          <div><h2>Why</h2><p>The site gives three different lengths of time trading, three versions of the opening hours (plus AutoTrader's), two phone numbers and two figures for the showroom. Each one is small, but a buyer comparing pages notices.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW24, idea 42 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 24</span><h1>One set of facts</h1><p>Years trading, hours, phone number and showroom size agreed once and used everywhere.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Change the opening hours on the right and see every page update.</p>
+      <div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><table class="qw-table"><thead><tr><th>Fact</th><th>What the site says</th></tr></thead><tbody><tr><th>Years trading</th><td>"more than a decade" and "over twenty years" (About), "approximately quarter century" (homepage)</td></tr><tr><th>Opening hours</th><td>Mon to Fri 08:30 to 19:00, Sat 08:30 to 18:00 (Location); viewings Mon to Sat (footer); different hours on AutoTrader</td></tr><tr><th>Phone</th><td>020 7723 2860 (site); (020) 8022 2494 (AutoTrader)</td></tr><tr><th>Showroom</th><td>"approximately 50 automobiles"; 40 listed</td></tr></tbody></table></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div data-qw="facts"><div class="form-grid"><div class="field"><label for="f-years">Years trading</label><input type="text" id="f-years" data-fact-in="years" value="[Agreed figure]"></div><div class="field"><label for="f-hours">Weekday hours</label><input type="text" id="f-hours" data-fact-in="hours" value="08:30 to 19:00"></div><div class="field"><label for="f-phone">Phone</label><input type="text" id="f-phone" data-fact-in="phone" value="020 7723 2860"></div></div><div class="qw-places"><div class="panel"><span class="small muted">Header</span><p><b data-fact-out="phone"></b></p></div><div class="panel"><span class="small muted">Homepage</span><p>Trading for <span data-fact-out="years"></span></p></div><div class="panel"><span class="small muted">Contact us</span><p>Monday to Friday, <span data-fact-out="hours"></span><br><span data-fact-out="phone"></span></p></div><div class="panel"><span class="small muted">Footer</span><p>Monday to Friday, <span data-fact-out="hours"></span> · <span data-fact-out="phone"></span></p></div></div></div></section></div>
+      <p class="wf-note query" data-note="1"><span class="wf-note-label">Open question</span>Which figures are right? We need one answer each for years trading, hours (including Sundays), phone number and how many cars the showroom holds.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

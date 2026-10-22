@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW12 Share a car – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 12 of 29 · Share a car</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Share buttons on every car: WhatsApp, email and copy link. With the page titles and share image from QW8, the message shows the car's photo, name and price rather than a bare link.</p></div>
+          <div><h2>Why</h2><p>There's no share option on car pages. A link pasted into WhatsApp shows no picture or useful title, because the pages have no share image and all share one title.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW12, idea 19 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 12</span><h1>Share a car</h1><p>Share to WhatsApp or email, or copy the link, with the car's photo in the preview.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Change the car, then compare the two messages.</p>
+      <div data-qw="share"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2020-rolls-royce-cullinan"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-chat"><div class="qw-bubble" data-chat-today></div></div><p class="small muted">No share buttons on the page.</p></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="share-row"><a class="btn" data-share-wa href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-secondary" data-share-email href="mailto:">Email</a></div><div class="copy-field"><input type="text" data-share-link readonly aria-label="Link to this car"><button type="button" class="btn btn-secondary" data-share-copy>Copy</button></div><div class="qw-chat"><div class="qw-bubble" data-chat-new></div></div></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>WhatsApp and email open with the car's name and link filled in. Copy uses the clipboard where the browser allows it.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

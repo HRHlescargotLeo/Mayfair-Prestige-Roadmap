@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW17 Lighter forms – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 17 of 29 · Lighter forms</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Fill in the car the buyer came from, ask only for a name and a way to reply, add an optional message, and make finance an optional tick ("I'd like to talk about finance").</p></div>
+          <div><h2>Why</h2><p>The reserve form requires a yes or no answer about finance and has no message box. Contact asks for the make, model and registration as typed text even when you've come from a car.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW17, idea 26 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 17</span><h1>Lighter forms</h1><p>Ask only what's needed, fill in the car, add a message box and make finance optional.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Send the proposed form without a message.</p>
+      <div data-qw="lightform"><div class="field qw-picker"><label for="qw-car">Show it with</label><select id="qw-car" data-qw-car data-default="2021-rolls-royce-ghost"></select></div><div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-form-today"><div class="field"><label>First name *</label><input type="text" disabled></div><div class="field"><label>Last name *</label><input type="text" disabled></div><div class="field"><label>Email *</label><input type="text" disabled></div><div class="field"><label>Phone *</label><input type="text" disabled></div><fieldset><legend>Finance *</legend><label class="check"><input type="radio" disabled> Yes</label><label class="check"><input type="radio" disabled> No</label></fieldset><p class="small muted">Make <b data-lf-today></b> and model <b data-lf-today-model></b> travel as hidden fields; the form doesn't show which car. No message box.</p></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-lf-car" data-lf-car></div><form data-confirm="lf-done" id="lf-form"><div class="form-grid"><div class="field full"><label for="lf-name">Name <span class="req">*</span></label><input type="text" id="lf-name" autocomplete="name" required data-error="Please tell us your name."></div><div class="field full"><label for="lf-reply">Phone or email <span class="req">*</span></label><input type="text" id="lf-reply" required data-error="Please give a phone number or email address."></div><div class="field full"><label for="lf-msg">Message (optional)</label><textarea id="lf-msg" rows="3"></textarea></div><label class="check full"><input type="checkbox"> I'd like to talk about finance</label></div><button type="submit" class="btn">Send</button></form><div class="confirm" id="lf-done" hidden><h2>Thank you</h2><p>Your reference is <span class="ref" data-ref="MPE">MPE-0000</span>. We'll reply [the same working day].</p></div></section></div></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Two required fields instead of five. The car comes with the enquiry, so the reply can start with an answer rather than a question.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW29 One typeface for headings – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400&amp;display=swap">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 29 of 29 · One typeface for headings</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Set car page titles in Montserrat, like every other heading on the site, and remove the Lato font files.</p></div>
+          <div><h2>Why</h2><p>Car page titles are set in Lato at 48px; every other heading is Montserrat. The site loads Lato in five weights, upright and italic, for that one use.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW29, idea 47 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 29</span><h1>One typeface for headings</h1><p>Set car titles in Montserrat like every other heading, and stop loading Lato.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Compare the two titles.</p>
+      <div class="qw-compare"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><p class="qw-title-lato">2014 Ferrari 458</p><p class="small muted">Lato, loaded only for this heading</p></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><p class="qw-title-mont">2014 Ferrari 458</p><p class="small muted">Montserrat, as everywhere else</p></section></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Fewer font files also makes car pages a little quicker to load.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>

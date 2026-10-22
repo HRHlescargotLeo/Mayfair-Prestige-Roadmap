@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QW1 Cars on the homepage – Mayfair Prestige quick win</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body class="qw-page">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <aside class="proposal" aria-label="About this quick win">
+      <div class="container">
+        <p class="proposal-eyebrow">Quick win 1 of 29 · Cars on the homepage</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Add a "Latest arrivals" row under the search band: eight cars, newest first, each with its photo, price, mileage and colour, and a link to the full inventory. It fills itself from the stock, so nobody has to maintain it.</p></div>
+          <div><h2>Why</h2><p>The homepage has a search band, three service tiles and several paragraphs of text. None of the 40 cars in stock appears on it, so a visitor has to search before they see anything for sale.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <!-- QW1, idea 1 -->
+      <div class="page-head qw-head"><span class="eyebrow">Quick win 1</span><h1>Cars on the homepage</h1><p>A row of the latest arrivals under the search, so the homepage shows the cars.</p></div>
+      <p class="qw-try"><strong>Try:</strong> Compare the two homepages and see where the first car appears.</p>
+      <div class="qw-compare stack"><section class="qw-pane qw-today" aria-label="Today"><p class="qw-label">Today</p><div class="qw-site"><div class="wf-placeholder qw-hero">Showroom photograph 1600 × 540</div><div class="search-band qw-search"><div class="search-row"><div class="field"><label>Make</label><select disabled><option>Make</option></select></div><div class="field"><label>Model</label><select disabled><option>Model</option></select></div><div class="field"><label>Max Price</label><select disabled><option>Max Price</option></select></div><div class="field"><label>Max Mileage</label><select disabled><option>Max Mileage</option></select></div><div class="field"><label>Fuel</label><select disabled><option>Fuel</option></select></div><div class="field"><label>Body</label><select disabled><option>Body</option></select></div></div></div><div class="qw-tiles"><div class="wf-placeholder">Storage</div><div class="wf-placeholder">Armoured Vehicles</div><div class="wf-placeholder">Finance</div></div><div class="qw-text"><p>[Several paragraphs about the business, its history and its services]</p></div><p class="qw-marker">No cars on the page</p></div></section><section class="qw-pane qw-proposed" aria-label="Proposed"><p class="qw-label">Proposed</p><div class="qw-site" data-qw="latest"><div class="wf-placeholder qw-hero slim">Showroom photograph 1600 × 540</div><div class="search-band qw-search"><div class="search-row"><div class="field"><label>Make</label><select disabled><option>Make</option></select></div><div class="field"><label>Model</label><select disabled><option>Model</option></select></div><div class="field"><label>Max Price</label><select disabled><option>Max Price</option></select></div><div class="field"><label>Max Mileage</label><select disabled><option>Max Mileage</option></select></div><div class="field"><label>Fuel</label><select disabled><option>Fuel</option></select></div><div class="field"><label>Body</label><select disabled><option>Body</option></select></div></div></div><div class="row between qw-sec-head"><h2>Latest arrivals</h2><a href="inventory.html">View all 40 cars</a></div><div class="car-grid" data-latest></div><div class="qw-tiles"><div class="wf-placeholder">Storage</div><div class="wf-placeholder">Armoured Vehicles</div><div class="wf-placeholder">Finance</div></div></div></section></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Newest first, using the date each car was added to stock. Reserved and under-offer cars stay in the row with their label, so the row never looks empty.</p>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Is the order cars are added to the site the same as the order they arrive? If not, we'd need an arrival date in the stock feed.</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/quickwins.js"></script>
+  <script src="~/js/photos.js"></script>
+</body>
+</html>
