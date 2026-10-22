@@ -231,7 +231,36 @@
   /* --- Prototype navigator and pager (R01, R03) ------------------------- */
   function initProtoNav() {
     var file = currentFile().replace('.html', '') || 'index';
-    var links = $all('.proto-links a[data-proto]');
+    /* Two tabs (R08): the five concepts and the quick wins. The pager stays
+       inside the current tab. */
+    var tab = (file === 'quick-wins' || /^qw-/.test(file)) ? 'qw' : 'big';
+    $all('[data-tab-link]').forEach(function (a) {
+      if (a.getAttribute('data-tab-link') === tab) a.setAttribute('aria-current', 'true');
+    });
+    $all('nav[data-set]').forEach(function (n) { n.hidden = n.getAttribute('data-set') !== tab; });
+    var set = $('nav[data-set="' + tab + '"]');
+    if (!set) return;
+    var links;
+    if (tab === 'qw') {
+      links = [$('.proto-links a[data-proto]', set)].concat($all('.qw-seq a', set));
+      var jump = $('[data-qw-jump]', set);
+      if (jump) {
+        var html = '<option value="">Choose…</option>';
+        $all('.qw-seq a', set).forEach(function (a) {
+          var on = a.getAttribute('data-proto') === file;
+          if (on) a.setAttribute('aria-current', 'page');
+          html += '<option value="' + a.getAttribute('href') + '"' + (on ? ' selected' : '') + '>' + esc(a.textContent.replace(/\s+/g, ' ').trim()) + '</option>';
+        });
+        jump.innerHTML = html;
+        jump.addEventListener('change', function () { if (jump.value) window.location.href = jump.value; });
+      }
+      var ov = $('.proto-links a[data-proto]', set);
+      if (file === 'quick-wins') ov.setAttribute('aria-current', 'page');
+      var index = -1;
+      links.forEach(function (a, i) { if (a.getAttribute('data-proto') === file) index = i; });
+      return buildPager(links, index);
+    }
+    links = $all('.proto-links a[data-proto]', set);
     var index = -1;
     links.forEach(function (a, i) {
       if (a.getAttribute('data-proto').split(' ').indexOf(file) !== -1) { a.setAttribute('aria-current', 'page'); index = i; }
@@ -241,6 +270,10 @@
       var list = current.closest('.proto-links');
       if (list) list.scrollLeft = current.offsetLeft - 16;
     }
+    buildPager(links, index);
+  }
+
+  function buildPager(links, index) {
     var pager = $('[data-proto-pager]');
     if (!pager || index < 0) return;
     function label(a) { return a.textContent.replace(/\s+/g, ' ').trim(); }
@@ -1117,6 +1150,6 @@
     initFinance();
   });
 
-  /* Exposed for photos.js (phase 3) and the module library */
-  window.MP = { byId: byId, carName: carName, money: money };
+  /* Exposed for photos.js and the module library */
+  window.MP = { byId: byId, carName: carName, money: money, num: num, stockNo: stockNo, carCard: carCard, FACTS: FACTS, monthly: monthly, toast: toast, validate: validate, reference: reference, esc: esc };
 })();

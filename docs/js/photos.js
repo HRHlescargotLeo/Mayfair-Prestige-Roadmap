@@ -1,5 +1,5 @@
 /* ==========================================================================
-   photos.js — Mayfair Prestige photography for the design layer (phase 3)
+   photos.js — Mayfair Prestige photography for the design layer
 
    Swaps the illustrated placeholders for Mayfair Prestige's own photography,
    loaded directly from mayfairprestigeuk.co.uk. Each image is applied only

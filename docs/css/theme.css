@@ -1,10 +1,10 @@
 /* ==========================================================================
-   theme.css — the Mayfair Prestige design layer (phase 3)
+   theme.css — the Mayfair Prestige design layer
 
    Everything visual lives here. Delete this file (or empty it) and the pack
    returns to the greyscale prototypes, with no page or structural CSS touched.
 
-   Values come from the phase 1 design system, measured from
+   Values come from the Mayfair Prestige design system, measured from
    mayfairprestigeuk.co.uk: charcoal #0e0f11, black, white, bone #f3f2ef,
    bone light #edebe9, soft graphite #16181c, Montserrat in spaced capitals,
    square corners, 1px borders, 52px controls and an arrow after button labels.
@@ -451,3 +451,44 @@ aside.panel.surface h2.small { letter-spacing: 0.2em; }
 .car-specs div { display: grid; grid-template-columns: 1fr; gap: 0.1rem; }
 .filter-mobile .btn::after { display: none; }
 .car-summary .wf-placeholder:not(.no-photo), .mini-car .wf-placeholder:not(.no-photo), .featured > .wf-placeholder, .thumb { color: transparent; }
+
+/* Tabs and quick wins (R08) ----------------------------------------------- */
+.proto-tabs { background: var(--mp-charcoal); border-bottom: 0; }
+.proto-tabs a { color: var(--mp-stone); font: 500 0.625rem/1 var(--mp-font); letter-spacing: 0.2em; text-transform: uppercase; padding: 0.7rem 0.9rem 0.6rem; border-bottom-width: 2px; }
+.proto-tabs a:first-child { padding-left: 0; }
+.proto-tabs a:hover { color: var(--mp-white); }
+.proto-tabs a[aria-current="true"] { color: var(--mp-white); border-bottom-color: var(--mp-bone); }
+.proto-tabs a:focus-visible { outline-color: var(--mp-bone); }
+.qw-jump { font: 500 0.6875rem/1 var(--mp-font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--mp-grey); }
+.qw-jump select { font: 500 0.8125rem/1.2 var(--mp-font); letter-spacing: 0.02em; text-transform: none; color: var(--mp-charcoal); height: 40px; border-radius: 0; }
+.qw-card { border-radius: 0; border-color: var(--mp-line); padding: 1.5rem; transition: border-color 0.15s; }
+.qw-card:hover { border-color: var(--mp-charcoal); }
+.qw-card h3 { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9375rem; line-height: 1.4; }
+.qw-card h3 a { text-decoration: none; }
+.qw-num { background: var(--mp-charcoal); color: var(--mp-white); border: 0; font-weight: 500; letter-spacing: 0.14em; padding: 0.3rem 0.55rem; }
+.qw-try { color: var(--mp-grey); }
+.qw-pane { border-radius: 0; border-color: var(--mp-line); padding: 1.5rem; }
+.qw-today { background: var(--mp-bone); }
+.qw-label { border-radius: 0; border-color: var(--mp-charcoal); font: 500 0.625rem/1 var(--mp-font); letter-spacing: 0.24em; padding: 0.45rem 0.6rem; }
+.qw-proposed > .qw-label { background: var(--mp-charcoal); color: var(--mp-white); }
+.qw-text { border-color: var(--mp-stone); }
+.qw-mini { border-color: var(--mp-line); border-radius: 0; }
+.qw-mini .wf-placeholder:not(.no-photo), .qw-linkcard .wf-placeholder:not(.no-photo), .qw-lf-car .wf-placeholder:not(.no-photo), .qw-testi .wf-placeholder.has-photo { color: transparent; }
+.qw-mini b { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8125rem; font-weight: 600; }
+.qw-group legend { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.6875rem; font-weight: 600; }
+.qw-screen { border-color: var(--mp-charcoal); }
+.qw-phone-bar b { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; }
+.qw-sheet { border-top-color: var(--mp-charcoal); }
+.qw-linkcard, .qw-lf-car { border-color: var(--mp-line); }
+.qw-empty { border-color: var(--mp-stone); }
+.qw-stickybar { border-color: var(--mp-charcoal); background: var(--mp-white); }
+.qw-header-strip { border-color: var(--mp-line); font: 400 1rem/1 var(--mp-font); }
+.qw-header-strip b { font-weight: 600; }
+.qw-header-strip a { font-weight: 600; letter-spacing: 0.06em; }
+.qw-deliver { border-left-color: var(--mp-charcoal); background: var(--mp-bone); }
+.qw-table th { font-weight: 600; }
+.qw-address { border-color: var(--mp-stone); }
+.qw-g .wf-placeholder.has-photo, .qw-hero.has-photo, .qw-phone-hero.has-photo { color: transparent; }
+.qw-head { margin-top: 0; }
+.proto-tabs a, .qw-mini, .qw-mini:hover, .qw-card h3 a { text-decoration: none; }
+.qw-jump select { padding-right: 2.5rem; background-position: right 0.75rem center; }
